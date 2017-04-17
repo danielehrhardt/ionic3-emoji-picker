@@ -1,23 +1,5 @@
 webpackJsonp([1,4],{
 
-/***/ 151:
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(9)();
-// imports
-
-
-// module
-exports.push([module.i, ":host {\n  display: inline-block; }\n\n.emoji-button {\n  padding: 0;\n  border: none;\n  outline: none;\n  background: none;\n  cursor: pointer;\n  width: 34px;\n  height: 34px;\n  border: 5px solid transparent;\n  border-radius: 3px;\n  font-size: 24px;\n  line-height: 1.1;\n  cursor: pointer;\n  -webkit-transition: all 0.2s;\n  transition: all 0.2s;\n  overflow: hidden; }\n  .emoji-button:hover, .emoji-button:focus {\n    background: #F1F1F1;\n    border-color: #F1F1F1; }\n", "", {"version":3,"sources":["/Users/lsharir/500tech/EmojiPanel-for-Angular/src/src/styles/emoji-button.scss","/Users/lsharir/500tech/EmojiPanel-for-Angular/src/src/styles/_constants.scss"],"names":[],"mappings":"AAEA;EACE,sBAAqB,EACtB;;AAED;EACE,WAAU;EACV,aAAY;EACZ,cAAa;EACb,iBAAgB;EAChB,gBAAe;EACf,YCE2B;EDD3B,aCC2B;EDA3B,8BAA6B;EAC7B,mBCJ4B;EDK5B,gBAA2C;EAC3C,iBAAgB;EAChB,gBAAe;EACf,6BAAoB;EAApB,qBAAoB;EACpB,iBAAgB,EAMjB;EApBD;IAiBM,oBAAmB;IACnB,sBAAqB,EACxB","file":"emoji-button.scss","sourcesContent":["@import '_constants.scss';\n\n:host {\n  display: inline-block;\n}\n\n.emoji-button {\n  padding: 0;\n  border: none;\n  outline: none;\n  background: none;\n  cursor: pointer;\n  width: $EmojiPanel-emoji-width;\n  height: $EmojiPanel-emoji-width;\n  border: 5px solid transparent;\n  border-radius: $EmojiPanel-border-radius;\n  font-size: ($EmojiPanel-emoji-width - 10px);\n  line-height: 1.1;\n  cursor: pointer;\n  transition: all 0.2s;\n  overflow: hidden;\n\n  &:hover, &:focus {\n      background: #F1F1F1;\n      border-color: #F1F1F1;\n  }\n}\n","$EmojiPanel-font-family: 'Arial', 'Arial Black', 'Tahoma', 'Trebuchet MS', 'Verdana';\n\n// Colors\n$EmojiPanel-background-header: #FCFCFC !default;\n$EmojiPanel-border-header: #F9F9F9 !default;\n$EmojiPanel-background-panel: #FFF !default;\n$EmojiPanel-border-input: #EEE !default;\n$EmojiPanel-category-title: #777 !default;\n\n// Padding and Borders\n$EmojiPanel-padding-results: 10px !default;\n$EmojiPanel-border-radius: 3px !default;\n\n// Dimensions\n$EmojiPanel-emoji-width: 34px !default;\n$EmojiPanel-width: $EmojiPanel-emoji-width * 7 + ($EmojiPanel-padding-results * 2);\n"],"sourceRoot":""}]);
-
-// exports
-
-
-/*** EXPORTS FROM exports-loader ***/
-module.exports = module.exports.toString();
-
-/***/ }),
-
 /***/ 152:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -26,7 +8,7 @@ exports = module.exports = __webpack_require__(9)();
 
 
 // module
-exports.push([module.i, ":host {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  -ms-flex-pack: distribute;\n      justify-content: space-around;\n  margin: 0 0 10px; }\n", "", {"version":3,"sources":["/Users/lsharir/500tech/EmojiPanel-for-Angular/src/src/styles/emoji-categories.scss"],"names":[],"mappings":"AAEA;EACE,qBAAa;EAAb,qBAAa;EAAb,cAAa;EACb,oBAAe;MAAf,gBAAe;EACf,0BAA6B;MAA7B,8BAA6B;EAC7B,iBAAgB,EACjB","file":"emoji-categories.scss","sourcesContent":["@import '_constants';\n\n:host {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: space-around;\n  margin: 0 0 10px;\n}\n"],"sourceRoot":""}]);
+exports.push([module.i, ":host {\n  display: inline-block; }\n\n.emoji-button {\n  padding: 0;\n  border: none;\n  outline: none;\n  background: none;\n  cursor: pointer;\n  width: 34px;\n  height: 34px;\n  border: 5px solid transparent;\n  border-radius: 3px;\n  font-size: 24px;\n  line-height: 1.1;\n  cursor: pointer;\n  -webkit-transition: all 0.2s;\n  transition: all 0.2s; }\n  .emoji-button:hover, .emoji-button:focus {\n    background: #F1F1F1;\n    border-color: #F1F1F1; }\n", "", {"version":3,"sources":["/Users/lsharir/500tech/EmojiPanel-for-Angular/src/src/styles/emoji-button.scss","/Users/lsharir/500tech/EmojiPanel-for-Angular/src/src/styles/_constants.scss"],"names":[],"mappings":"AAEA;EACE,sBAAqB,EACtB;;AAED;EACE,WAAU;EACV,aAAY;EACZ,cAAa;EACb,iBAAgB;EAChB,gBAAe;EACf,YCE2B;EDD3B,aCC2B;EDA3B,8BAA6B;EAC7B,mBCJ4B;EDK5B,gBAA2C;EAC3C,iBAAgB;EAChB,gBAAe;EACf,6BAAoB;EAApB,qBAAoB,EAMrB;EAnBD;IAgBM,oBAAmB;IACnB,sBAAqB,EACxB","file":"emoji-button.scss","sourcesContent":["@import '_constants.scss';\n\n:host {\n  display: inline-block;\n}\n\n.emoji-button {\n  padding: 0;\n  border: none;\n  outline: none;\n  background: none;\n  cursor: pointer;\n  width: $EmojiPanel-emoji-width;\n  height: $EmojiPanel-emoji-width;\n  border: 5px solid transparent;\n  border-radius: $EmojiPanel-border-radius;\n  font-size: ($EmojiPanel-emoji-width - 10px);\n  line-height: 1.1;\n  cursor: pointer;\n  transition: all 0.2s;\n\n  &:hover, &:focus {\n      background: #F1F1F1;\n      border-color: #F1F1F1;\n  }\n}\n","$EmojiPanel-font-family: 'Arial', 'Arial Black', 'Tahoma', 'Trebuchet MS', 'Verdana';\n\n// Colors\n$EmojiPanel-background-header: #FCFCFC !default;\n$EmojiPanel-border-header: #F9F9F9 !default;\n$EmojiPanel-background-panel: #FFF !default;\n$EmojiPanel-border-input: #EEE !default;\n$EmojiPanel-category-title: #777 !default;\n\n// Padding and Borders\n$EmojiPanel-padding-results: 10px !default;\n$EmojiPanel-border-radius: 3px !default;\n\n// Dimensions\n$EmojiPanel-emoji-width: 34px !default;\n$EmojiPanel-width: $EmojiPanel-emoji-width * 7 + ($EmojiPanel-padding-results * 2);\n"],"sourceRoot":""}]);
 
 // exports
 
@@ -44,7 +26,7 @@ exports = module.exports = __webpack_require__(9)();
 
 
 // module
-exports.push([module.i, ".emoji-category {\n  margin: 15px 0 5px;\n  padding: 0 0 5px;\n  border-bottom: 1px solid #EEE;\n  color: #777;\n  font-family: \"Arial\", \"Arial Black\", \"Tahoma\", \"Trebuchet MS\", \"Verdana\"; }\n", "", {"version":3,"sources":["/Users/lsharir/500tech/EmojiPanel-for-Angular/src/src/styles/emoji-category.scss","/Users/lsharir/500tech/EmojiPanel-for-Angular/src/src/styles/_constants.scss"],"names":[],"mappings":"AAEA;EACI,mBAAkB;EAClB,iBAAgB;EAChB,8BCC0B;EDA1B,YCC4B;EDA5B,yECPgF,EDQnF","file":"emoji-category.scss","sourcesContent":["@import '_constants';\n\n.emoji-category {\n    margin: 15px 0 5px;\n    padding: 0 0 5px;\n    border-bottom: 1px solid $EmojiPanel-border-input;\n    color: $EmojiPanel-category-title;\n    font-family: $EmojiPanel-font-family;\n}\n","$EmojiPanel-font-family: 'Arial', 'Arial Black', 'Tahoma', 'Trebuchet MS', 'Verdana';\n\n// Colors\n$EmojiPanel-background-header: #FCFCFC !default;\n$EmojiPanel-border-header: #F9F9F9 !default;\n$EmojiPanel-background-panel: #FFF !default;\n$EmojiPanel-border-input: #EEE !default;\n$EmojiPanel-category-title: #777 !default;\n\n// Padding and Borders\n$EmojiPanel-padding-results: 10px !default;\n$EmojiPanel-border-radius: 3px !default;\n\n// Dimensions\n$EmojiPanel-emoji-width: 34px !default;\n$EmojiPanel-width: $EmojiPanel-emoji-width * 7 + ($EmojiPanel-padding-results * 2);\n"],"sourceRoot":""}]);
+exports.push([module.i, ":host {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  -ms-flex-pack: distribute;\n      justify-content: space-around;\n  margin: 0 0 10px; }\n", "", {"version":3,"sources":["/Users/lsharir/500tech/EmojiPanel-for-Angular/src/src/styles/emoji-categories.scss"],"names":[],"mappings":"AAEA;EACE,qBAAa;EAAb,qBAAa;EAAb,cAAa;EACb,oBAAe;MAAf,gBAAe;EACf,0BAA6B;MAA7B,8BAA6B;EAC7B,iBAAgB,EACjB","file":"emoji-categories.scss","sourcesContent":["@import '_constants';\n\n:host {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: space-around;\n  margin: 0 0 10px;\n}\n"],"sourceRoot":""}]);
 
 // exports
 
@@ -62,7 +44,7 @@ exports = module.exports = __webpack_require__(9)();
 
 
 // module
-exports.push([module.i, ":host {\n  display: block;\n  width: 100vw;\n  border-radius: 3px;\n  background: #FFF;\n  text-align: left;\n  box-shadow: 0 11px 15px -7px rgba(0, 0, 0, 0.2), 0 24px 38px 3px rgba(0, 0, 0, 0.14), 0 9px 46px 8px rgba(0, 0, 0, 0.12); }\n  @media (min-width: 258px) {\n    :host {\n      width: 258px; } }\n", "", {"version":3,"sources":["/Users/lsharir/500tech/EmojiPanel-for-Angular/src/src/styles/emoji-content.scss","/Users/lsharir/500tech/EmojiPanel-for-Angular/src/src/styles/_constants.scss"],"names":[],"mappings":"AAEA;EACE,eAAc;EACd,aAAY;EACZ,mBCM4B;EDL5B,iBCDgC;EDEhC,iBAAgB;EAChB,yHAA4G,EAK7G;EAHC;IARF;MASM,aCI4E,EDFjF,EAAA","file":"emoji-content.scss","sourcesContent":["@import '_constants';\n\n:host {\n  display: block;\n  width: 100vw;\n  border-radius: $EmojiPanel-border-radius;\n  background: $EmojiPanel-background-panel;\n  text-align: left;\n  box-shadow: 0 11px 15px -7px rgba(0,0,0,.2), 0 24px 38px 3px rgba(0,0,0,.14), 0 9px 46px 8px rgba(0,0,0,.12);\n\n  @media(min-width: $EmojiPanel-width) {\n      width: $EmojiPanel-width;\n  }\n}\n","$EmojiPanel-font-family: 'Arial', 'Arial Black', 'Tahoma', 'Trebuchet MS', 'Verdana';\n\n// Colors\n$EmojiPanel-background-header: #FCFCFC !default;\n$EmojiPanel-border-header: #F9F9F9 !default;\n$EmojiPanel-background-panel: #FFF !default;\n$EmojiPanel-border-input: #EEE !default;\n$EmojiPanel-category-title: #777 !default;\n\n// Padding and Borders\n$EmojiPanel-padding-results: 10px !default;\n$EmojiPanel-border-radius: 3px !default;\n\n// Dimensions\n$EmojiPanel-emoji-width: 34px !default;\n$EmojiPanel-width: $EmojiPanel-emoji-width * 7 + ($EmojiPanel-padding-results * 2);\n"],"sourceRoot":""}]);
+exports.push([module.i, ".emoji-category {\n  margin: 15px 0 5px;\n  padding: 0 0 5px;\n  border-bottom: 1px solid #EEE;\n  color: #777;\n  font-family: \"Arial\", \"Arial Black\", \"Tahoma\", \"Trebuchet MS\", \"Verdana\"; }\n", "", {"version":3,"sources":["/Users/lsharir/500tech/EmojiPanel-for-Angular/src/src/styles/emoji-category.scss","/Users/lsharir/500tech/EmojiPanel-for-Angular/src/src/styles/_constants.scss"],"names":[],"mappings":"AAEA;EACI,mBAAkB;EAClB,iBAAgB;EAChB,8BCC0B;EDA1B,YCC4B;EDA5B,yECPgF,EDQnF","file":"emoji-category.scss","sourcesContent":["@import '_constants';\n\n.emoji-category {\n    margin: 15px 0 5px;\n    padding: 0 0 5px;\n    border-bottom: 1px solid $EmojiPanel-border-input;\n    color: $EmojiPanel-category-title;\n    font-family: $EmojiPanel-font-family;\n}\n","$EmojiPanel-font-family: 'Arial', 'Arial Black', 'Tahoma', 'Trebuchet MS', 'Verdana';\n\n// Colors\n$EmojiPanel-background-header: #FCFCFC !default;\n$EmojiPanel-border-header: #F9F9F9 !default;\n$EmojiPanel-background-panel: #FFF !default;\n$EmojiPanel-border-input: #EEE !default;\n$EmojiPanel-category-title: #777 !default;\n\n// Padding and Borders\n$EmojiPanel-padding-results: 10px !default;\n$EmojiPanel-border-radius: 3px !default;\n\n// Dimensions\n$EmojiPanel-emoji-width: 34px !default;\n$EmojiPanel-width: $EmojiPanel-emoji-width * 7 + ($EmojiPanel-padding-results * 2);\n"],"sourceRoot":""}]);
 
 // exports
 
@@ -80,7 +62,7 @@ exports = module.exports = __webpack_require__(9)();
 
 
 // module
-exports.push([module.i, ".emoji-footer {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  min-height: 34px;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n  border-top: 1px solid #F9F9F9;\n  border-radius: 0 0 3px 3px;\n  padding: 10px;\n  background: #FCFCFC; }\n", "", {"version":3,"sources":["/Users/lsharir/500tech/EmojiPanel-for-Angular/src/src/styles/emoji-footer.scss","/Users/lsharir/500tech/EmojiPanel-for-Angular/src/src/styles/_constants.scss"],"names":[],"mappings":"AAEA;EACE,qBAAa;EAAb,qBAAa;EAAb,cAAa;EACb,iBCU2B;EDT3B,0BAAmB;MAAnB,uBAAmB;UAAnB,oBAAmB;EACnB,0BAA8B;MAA9B,uBAA8B;UAA9B,+BAA8B;EAC9B,8BCHgC;EDIhC,2BCG4B;EDF5B,cCC+B;EDA/B,oBCPoC,EDQrC","file":"emoji-footer.scss","sourcesContent":["@import '_constants';\n\n.emoji-footer {\n  display: flex;\n  min-height: $EmojiPanel-emoji-width;\n  align-items: center;\n  justify-content: space-between;\n  border-top: 1px solid $EmojiPanel-border-header;\n  border-radius: 0 0 $EmojiPanel-border-radius $EmojiPanel-border-radius;\n  padding: $EmojiPanel-padding-results;\n  background: $EmojiPanel-background-header;\n}\n","$EmojiPanel-font-family: 'Arial', 'Arial Black', 'Tahoma', 'Trebuchet MS', 'Verdana';\n\n// Colors\n$EmojiPanel-background-header: #FCFCFC !default;\n$EmojiPanel-border-header: #F9F9F9 !default;\n$EmojiPanel-background-panel: #FFF !default;\n$EmojiPanel-border-input: #EEE !default;\n$EmojiPanel-category-title: #777 !default;\n\n// Padding and Borders\n$EmojiPanel-padding-results: 10px !default;\n$EmojiPanel-border-radius: 3px !default;\n\n// Dimensions\n$EmojiPanel-emoji-width: 34px !default;\n$EmojiPanel-width: $EmojiPanel-emoji-width * 7 + ($EmojiPanel-padding-results * 2);\n"],"sourceRoot":""}]);
+exports.push([module.i, ":host {\n  display: block;\n  width: 100vw;\n  border-radius: 3px;\n  background: #FFF;\n  text-align: left;\n  box-shadow: 0 11px 15px -7px rgba(0, 0, 0, 0.2), 0 24px 38px 3px rgba(0, 0, 0, 0.14), 0 9px 46px 8px rgba(0, 0, 0, 0.12); }\n  @media (min-width: 258px) {\n    :host {\n      width: 258px; } }\n", "", {"version":3,"sources":["/Users/lsharir/500tech/EmojiPanel-for-Angular/src/src/styles/emoji-content.scss","/Users/lsharir/500tech/EmojiPanel-for-Angular/src/src/styles/_constants.scss"],"names":[],"mappings":"AAEA;EACE,eAAc;EACd,aAAY;EACZ,mBCM4B;EDL5B,iBCDgC;EDEhC,iBAAgB;EAChB,yHAA4G,EAK7G;EAHC;IARF;MASM,aCI4E,EDFjF,EAAA","file":"emoji-content.scss","sourcesContent":["@import '_constants';\n\n:host {\n  display: block;\n  width: 100vw;\n  border-radius: $EmojiPanel-border-radius;\n  background: $EmojiPanel-background-panel;\n  text-align: left;\n  box-shadow: 0 11px 15px -7px rgba(0,0,0,.2), 0 24px 38px 3px rgba(0,0,0,.14), 0 9px 46px 8px rgba(0,0,0,.12);\n\n  @media(min-width: $EmojiPanel-width) {\n      width: $EmojiPanel-width;\n  }\n}\n","$EmojiPanel-font-family: 'Arial', 'Arial Black', 'Tahoma', 'Trebuchet MS', 'Verdana';\n\n// Colors\n$EmojiPanel-background-header: #FCFCFC !default;\n$EmojiPanel-border-header: #F9F9F9 !default;\n$EmojiPanel-background-panel: #FFF !default;\n$EmojiPanel-border-input: #EEE !default;\n$EmojiPanel-category-title: #777 !default;\n\n// Padding and Borders\n$EmojiPanel-padding-results: 10px !default;\n$EmojiPanel-border-radius: 3px !default;\n\n// Dimensions\n$EmojiPanel-emoji-width: 34px !default;\n$EmojiPanel-width: $EmojiPanel-emoji-width * 7 + ($EmojiPanel-padding-results * 2);\n"],"sourceRoot":""}]);
 
 // exports
 
@@ -98,7 +80,7 @@ exports = module.exports = __webpack_require__(9)();
 
 
 // module
-exports.push([module.i, ":host {\n  display: block;\n  border-bottom: 1px solid #F9F9F9;\n  border-radius: 3px 3px 0 0;\n  padding: 10px;\n  background: #FCFCFC; }\n", "", {"version":3,"sources":["/Users/lsharir/500tech/EmojiPanel-for-Angular/src/src/styles/emoji-header.scss","/Users/lsharir/500tech/EmojiPanel-for-Angular/src/src/styles/_constants.scss"],"names":[],"mappings":"AAEA;EACE,eAAc;EACd,iCCAgC;EDChC,2BAAsE;EACtE,cCI+B;EDH/B,oBCJoC,EDKrC","file":"emoji-header.scss","sourcesContent":["@import '_constants';\n\n:host {\n  display: block;\n  border-bottom: 1px solid $EmojiPanel-border-header;\n  border-radius: $EmojiPanel-border-radius $EmojiPanel-border-radius 0 0;\n  padding: $EmojiPanel-padding-results;\n  background: $EmojiPanel-background-header;\n}\n","$EmojiPanel-font-family: 'Arial', 'Arial Black', 'Tahoma', 'Trebuchet MS', 'Verdana';\n\n// Colors\n$EmojiPanel-background-header: #FCFCFC !default;\n$EmojiPanel-border-header: #F9F9F9 !default;\n$EmojiPanel-background-panel: #FFF !default;\n$EmojiPanel-border-input: #EEE !default;\n$EmojiPanel-category-title: #777 !default;\n\n// Padding and Borders\n$EmojiPanel-padding-results: 10px !default;\n$EmojiPanel-border-radius: 3px !default;\n\n// Dimensions\n$EmojiPanel-emoji-width: 34px !default;\n$EmojiPanel-width: $EmojiPanel-emoji-width * 7 + ($EmojiPanel-padding-results * 2);\n"],"sourceRoot":""}]);
+exports.push([module.i, ".emoji-footer {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  min-height: 34px;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n  border-top: 1px solid #F9F9F9;\n  border-radius: 0 0 3px 3px;\n  padding: 10px;\n  background: #FCFCFC; }\n", "", {"version":3,"sources":["/Users/lsharir/500tech/EmojiPanel-for-Angular/src/src/styles/emoji-footer.scss","/Users/lsharir/500tech/EmojiPanel-for-Angular/src/src/styles/_constants.scss"],"names":[],"mappings":"AAEA;EACE,qBAAa;EAAb,qBAAa;EAAb,cAAa;EACb,iBCU2B;EDT3B,0BAAmB;MAAnB,uBAAmB;UAAnB,oBAAmB;EACnB,0BAA8B;MAA9B,uBAA8B;UAA9B,+BAA8B;EAC9B,8BCHgC;EDIhC,2BCG4B;EDF5B,cCC+B;EDA/B,oBCPoC,EDQrC","file":"emoji-footer.scss","sourcesContent":["@import '_constants';\n\n.emoji-footer {\n  display: flex;\n  min-height: $EmojiPanel-emoji-width;\n  align-items: center;\n  justify-content: space-between;\n  border-top: 1px solid $EmojiPanel-border-header;\n  border-radius: 0 0 $EmojiPanel-border-radius $EmojiPanel-border-radius;\n  padding: $EmojiPanel-padding-results;\n  background: $EmojiPanel-background-header;\n}\n","$EmojiPanel-font-family: 'Arial', 'Arial Black', 'Tahoma', 'Trebuchet MS', 'Verdana';\n\n// Colors\n$EmojiPanel-background-header: #FCFCFC !default;\n$EmojiPanel-border-header: #F9F9F9 !default;\n$EmojiPanel-background-panel: #FFF !default;\n$EmojiPanel-border-input: #EEE !default;\n$EmojiPanel-category-title: #777 !default;\n\n// Padding and Borders\n$EmojiPanel-padding-results: 10px !default;\n$EmojiPanel-border-radius: 3px !default;\n\n// Dimensions\n$EmojiPanel-emoji-width: 34px !default;\n$EmojiPanel-width: $EmojiPanel-emoji-width * 7 + ($EmojiPanel-padding-results * 2);\n"],"sourceRoot":""}]);
 
 // exports
 
@@ -116,7 +98,7 @@ exports = module.exports = __webpack_require__(9)();
 
 
 // module
-exports.push([module.i, ".emoji-list {\n  overflow-y: auto;\n  height: 300px;\n  padding: 0 10px 10px; }\n\n.emoji-buttons {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap; }\n", "", {"version":3,"sources":["/Users/lsharir/500tech/EmojiPanel-for-Angular/src/src/styles/emoji-list.scss","/Users/lsharir/500tech/EmojiPanel-for-Angular/src/src/styles/_constants.scss"],"names":[],"mappings":"AAEA;EACE,iBAAgB;EAChB,cAAa;EACb,qBCK+B,EDJhC;;AAED;EACE,qBAAa;EAAb,qBAAa;EAAb,cAAa;EACb,yBAAuB;MAAvB,sBAAuB;UAAvB,wBAAuB;EACvB,oBAAe;MAAf,gBAAe,EAChB","file":"emoji-list.scss","sourcesContent":["@import '_constants';\n\n.emoji-list {\n  overflow-y: auto;\n  height: 300px;\n  padding: 0 $EmojiPanel-padding-results $EmojiPanel-padding-results;\n}\n\n.emoji-buttons {\n  display: flex;\n  justify-content: center;\n  flex-wrap: wrap;\n}\n","$EmojiPanel-font-family: 'Arial', 'Arial Black', 'Tahoma', 'Trebuchet MS', 'Verdana';\n\n// Colors\n$EmojiPanel-background-header: #FCFCFC !default;\n$EmojiPanel-border-header: #F9F9F9 !default;\n$EmojiPanel-background-panel: #FFF !default;\n$EmojiPanel-border-input: #EEE !default;\n$EmojiPanel-category-title: #777 !default;\n\n// Padding and Borders\n$EmojiPanel-padding-results: 10px !default;\n$EmojiPanel-border-radius: 3px !default;\n\n// Dimensions\n$EmojiPanel-emoji-width: 34px !default;\n$EmojiPanel-width: $EmojiPanel-emoji-width * 7 + ($EmojiPanel-padding-results * 2);\n"],"sourceRoot":""}]);
+exports.push([module.i, ":host {\n  display: block;\n  border-bottom: 1px solid #F9F9F9;\n  border-radius: 3px 3px 0 0;\n  padding: 10px;\n  background: #FCFCFC; }\n", "", {"version":3,"sources":["/Users/lsharir/500tech/EmojiPanel-for-Angular/src/src/styles/emoji-header.scss","/Users/lsharir/500tech/EmojiPanel-for-Angular/src/src/styles/_constants.scss"],"names":[],"mappings":"AAEA;EACE,eAAc;EACd,iCCAgC;EDChC,2BAAsE;EACtE,cCI+B;EDH/B,oBCJoC,EDKrC","file":"emoji-header.scss","sourcesContent":["@import '_constants';\n\n:host {\n  display: block;\n  border-bottom: 1px solid $EmojiPanel-border-header;\n  border-radius: $EmojiPanel-border-radius $EmojiPanel-border-radius 0 0;\n  padding: $EmojiPanel-padding-results;\n  background: $EmojiPanel-background-header;\n}\n","$EmojiPanel-font-family: 'Arial', 'Arial Black', 'Tahoma', 'Trebuchet MS', 'Verdana';\n\n// Colors\n$EmojiPanel-background-header: #FCFCFC !default;\n$EmojiPanel-border-header: #F9F9F9 !default;\n$EmojiPanel-background-panel: #FFF !default;\n$EmojiPanel-border-input: #EEE !default;\n$EmojiPanel-category-title: #777 !default;\n\n// Padding and Borders\n$EmojiPanel-padding-results: 10px !default;\n$EmojiPanel-border-radius: 3px !default;\n\n// Dimensions\n$EmojiPanel-emoji-width: 34px !default;\n$EmojiPanel-width: $EmojiPanel-emoji-width * 7 + ($EmojiPanel-padding-results * 2);\n"],"sourceRoot":""}]);
 
 // exports
 
@@ -134,7 +116,7 @@ exports = module.exports = __webpack_require__(9)();
 
 
 // module
-exports.push([module.i, "input {\n  width: 100%;\n  padding: 5px 14px;\n  border: 1px solid #EEE;\n  border-radius: 30px;\n  outline: none;\n  font-size: 14px;\n  font-weight: inherit;\n  box-sizing: border-box; }\n  input:focus {\n    border-color: #d5d5d5; }\n", "", {"version":3,"sources":["/Users/lsharir/500tech/EmojiPanel-for-Angular/src/src/styles/emoji-search.scss","/Users/lsharir/500tech/EmojiPanel-for-Angular/src/src/styles/_constants.scss"],"names":[],"mappings":"AAEA;EACE,YAAW;EACX,kBAAiB;EACjB,uBCC4B;EDA5B,oBAAmB;EACnB,cAAa;EACb,gBAAe;EACf,qBAAoB;EACpB,uBAAsB,EAKvB;EAbD;IAWM,sBAAmD,EACtD","file":"emoji-search.scss","sourcesContent":["@import '_constants';\n\ninput {\n  width: 100%;\n  padding: 5px 14px;\n  border: 1px solid $EmojiPanel-border-input;\n  border-radius: 30px;\n  outline: none;\n  font-size: 14px;\n  font-weight: inherit;\n  box-sizing: border-box;\n\n  &:focus {\n      border-color: darken($EmojiPanel-border-input, 10%);\n  }\n}\n","$EmojiPanel-font-family: 'Arial', 'Arial Black', 'Tahoma', 'Trebuchet MS', 'Verdana';\n\n// Colors\n$EmojiPanel-background-header: #FCFCFC !default;\n$EmojiPanel-border-header: #F9F9F9 !default;\n$EmojiPanel-background-panel: #FFF !default;\n$EmojiPanel-border-input: #EEE !default;\n$EmojiPanel-category-title: #777 !default;\n\n// Padding and Borders\n$EmojiPanel-padding-results: 10px !default;\n$EmojiPanel-border-radius: 3px !default;\n\n// Dimensions\n$EmojiPanel-emoji-width: 34px !default;\n$EmojiPanel-width: $EmojiPanel-emoji-width * 7 + ($EmojiPanel-padding-results * 2);\n"],"sourceRoot":""}]);
+exports.push([module.i, ".emoji-list {\n  overflow-y: auto;\n  height: 300px;\n  padding: 0 10px 10px; }\n\n.emoji-buttons {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap; }\n", "", {"version":3,"sources":["/Users/lsharir/500tech/EmojiPanel-for-Angular/src/src/styles/emoji-list.scss","/Users/lsharir/500tech/EmojiPanel-for-Angular/src/src/styles/_constants.scss"],"names":[],"mappings":"AAEA;EACE,iBAAgB;EAChB,cAAa;EACb,qBCK+B,EDJhC;;AAED;EACE,qBAAa;EAAb,qBAAa;EAAb,cAAa;EACb,yBAAuB;MAAvB,sBAAuB;UAAvB,wBAAuB;EACvB,oBAAe;MAAf,gBAAe,EAChB","file":"emoji-list.scss","sourcesContent":["@import '_constants';\n\n.emoji-list {\n  overflow-y: auto;\n  height: 300px;\n  padding: 0 $EmojiPanel-padding-results $EmojiPanel-padding-results;\n}\n\n.emoji-buttons {\n  display: flex;\n  justify-content: center;\n  flex-wrap: wrap;\n}\n","$EmojiPanel-font-family: 'Arial', 'Arial Black', 'Tahoma', 'Trebuchet MS', 'Verdana';\n\n// Colors\n$EmojiPanel-background-header: #FCFCFC !default;\n$EmojiPanel-border-header: #F9F9F9 !default;\n$EmojiPanel-background-panel: #FFF !default;\n$EmojiPanel-border-input: #EEE !default;\n$EmojiPanel-category-title: #777 !default;\n\n// Padding and Borders\n$EmojiPanel-padding-results: 10px !default;\n$EmojiPanel-border-radius: 3px !default;\n\n// Dimensions\n$EmojiPanel-emoji-width: 34px !default;\n$EmojiPanel-width: $EmojiPanel-emoji-width * 7 + ($EmojiPanel-padding-results * 2);\n"],"sourceRoot":""}]);
 
 // exports
 
@@ -152,7 +134,7 @@ exports = module.exports = __webpack_require__(9)();
 
 
 // module
-exports.push([module.i, ".emoji-toggle-button {\n  font-style: normal;\n  padding: 5px;\n  cursor: pointer;\n  font-size: 3rem;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n}\n\n.main {\n  text-align: center;\n}\n\nheader {\n  text-align: center;\n  font-family: 'Arial', 'Arial Black', 'Tahoma', 'Trebuchet MS', 'Verdana';\n}\n", "", {"version":3,"sources":["/Users/lsharir/500tech/EmojiPanel-for-Angular/demo/src/app/app.component.css"],"names":[],"mappings":"AAAA;EACE,mBAAmB;EACnB,aAAa;EACb,gBAAgB;EAChB,gBAAgB;EAChB,0BAAkB;KAAlB,uBAAkB;MAAlB,sBAAkB;UAAlB,kBAAkB;CACnB;;AAED;EACE,mBAAmB;CACpB;;AAED;EACE,mBAAmB;EACnB,yEAAyE;CAC1E","file":"app.component.css","sourcesContent":[".emoji-toggle-button {\n  font-style: normal;\n  padding: 5px;\n  cursor: pointer;\n  font-size: 3rem;\n  user-select: none;\n}\n\n.main {\n  text-align: center;\n}\n\nheader {\n  text-align: center;\n  font-family: 'Arial', 'Arial Black', 'Tahoma', 'Trebuchet MS', 'Verdana';\n}\n"],"sourceRoot":""}]);
+exports.push([module.i, "input {\n  width: 100%;\n  padding: 5px 14px;\n  border: 1px solid #EEE;\n  border-radius: 30px;\n  outline: none;\n  font-size: 14px;\n  font-weight: inherit;\n  box-sizing: border-box; }\n  input:focus {\n    border-color: #d5d5d5; }\n", "", {"version":3,"sources":["/Users/lsharir/500tech/EmojiPanel-for-Angular/src/src/styles/emoji-search.scss","/Users/lsharir/500tech/EmojiPanel-for-Angular/src/src/styles/_constants.scss"],"names":[],"mappings":"AAEA;EACE,YAAW;EACX,kBAAiB;EACjB,uBCC4B;EDA5B,oBAAmB;EACnB,cAAa;EACb,gBAAe;EACf,qBAAoB;EACpB,uBAAsB,EAKvB;EAbD;IAWM,sBAAmD,EACtD","file":"emoji-search.scss","sourcesContent":["@import '_constants';\n\ninput {\n  width: 100%;\n  padding: 5px 14px;\n  border: 1px solid $EmojiPanel-border-input;\n  border-radius: 30px;\n  outline: none;\n  font-size: 14px;\n  font-weight: inherit;\n  box-sizing: border-box;\n\n  &:focus {\n      border-color: darken($EmojiPanel-border-input, 10%);\n  }\n}\n","$EmojiPanel-font-family: 'Arial', 'Arial Black', 'Tahoma', 'Trebuchet MS', 'Verdana';\n\n// Colors\n$EmojiPanel-background-header: #FCFCFC !default;\n$EmojiPanel-border-header: #F9F9F9 !default;\n$EmojiPanel-background-panel: #FFF !default;\n$EmojiPanel-border-input: #EEE !default;\n$EmojiPanel-category-title: #777 !default;\n\n// Padding and Borders\n$EmojiPanel-padding-results: 10px !default;\n$EmojiPanel-border-radius: 3px !default;\n\n// Dimensions\n$EmojiPanel-emoji-width: 34px !default;\n$EmojiPanel-width: $EmojiPanel-emoji-width * 7 + ($EmojiPanel-padding-results * 2);\n"],"sourceRoot":""}]);
 
 // exports
 
@@ -211,14 +193,32 @@ var COMPONENTS = [
 
 /***/ }),
 
-/***/ 161:
-/***/ (function(module, exports) {
+/***/ 160:
+/***/ (function(module, exports, __webpack_require__) {
 
-module.exports = "<header>\n  <h1>Angular Emoji Picker</h1>\n</header>\n\n<code><pre>\n  [(emojiPickerIf)]=\"{{toggled}}\"\n  (emojiPickerSelect)=\"handleSelection($event{{' = ' + eventMock}})\"\n</pre></code>\n\n<div class=\"main\">\n  <i\n    class=\"emoji-toggle-button\"\n    (click)=\"toggled = !toggled\"\n    emojiPickerAnchor\n    [(emojiPickerIf)]=\"toggled\"\n    (emojiPickerSelect)=\"handleSelection($event)\">😄</i>\n</div>\n\n<footer>\n\n</footer>\n"
+exports = module.exports = __webpack_require__(9)();
+// imports
+
+
+// module
+exports.push([module.i, ".emoji-toggle-button {\n  font-style: normal;\n  padding: 5px;\n  cursor: pointer;\n  font-size: 3rem;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n}\n\n.emoji-content-editable {\n  background: #eee;\n  border: 1px solid #ccc;\n  padding: 0.5rem 0.25rem;\n}\n\npre {\n  background: #1d1f20;\n  color: #fff;\n  padding: 2rem 1rem;\n}\n\n.main {\n  text-align: center;\n}\n\nheader {\n  text-align: center;\n  font-family: 'Arial', 'Arial Black', 'Tahoma', 'Trebuchet MS', 'Verdana';\n}\n", "", {"version":3,"sources":["/Users/lsharir/500tech/EmojiPanel-for-Angular/demo/src/app/app.component.css"],"names":[],"mappings":"AAAA;EACE,mBAAmB;EACnB,aAAa;EACb,gBAAgB;EAChB,gBAAgB;EAChB,0BAAkB;KAAlB,uBAAkB;MAAlB,sBAAkB;UAAlB,kBAAkB;CACnB;;AAED;EACE,iBAAiB;EACjB,uBAAuB;EACvB,wBAAwB;CACzB;;AAED;EACE,oBAAoB;EACpB,YAAY;EACZ,mBAAmB;CACpB;;AAED;EACE,mBAAmB;CACpB;;AAED;EACE,mBAAmB;EACnB,yEAAyE;CAC1E","file":"app.component.css","sourcesContent":[".emoji-toggle-button {\n  font-style: normal;\n  padding: 5px;\n  cursor: pointer;\n  font-size: 3rem;\n  user-select: none;\n}\n\n.emoji-content-editable {\n  background: #eee;\n  border: 1px solid #ccc;\n  padding: 0.5rem 0.25rem;\n}\n\npre {\n  background: #1d1f20;\n  color: #fff;\n  padding: 2rem 1rem;\n}\n\n.main {\n  text-align: center;\n}\n\nheader {\n  text-align: center;\n  font-family: 'Arial', 'Arial Black', 'Tahoma', 'Trebuchet MS', 'Verdana';\n}\n"],"sourceRoot":""}]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 194:
+/***/ 162:
+/***/ (function(module, exports) {
+
+module.exports = "<header>\n  <h1>Angular Emoji Picker</h1>\n</header>\n\n<code><pre>\n  contenteditable:\n  (emojiPickerPositionEmitter)=\"handleCurrentPosition($event{{' = ' + eventPosMock}})\"\n\n  😄:\n  [(emojiPickerIf)]=\"{{toggled}}\"\n  (emojiPickerSelect)=\"handleSelection($event{{' = ' + eventMock}})\"\n</pre></code>\n\n<div class=\"main\">\n  <div class=\"emoji-content-editable\"\n    (emojiPickerPositionEmitter)=\"handleCurrentPosition($event)\"\n    contenteditable=\"true\">This is a contenteditable</div>\n  <i\n    class=\"emoji-toggle-button\"\n    (click)=\"toggled = !toggled\"\n    emojiPickerAnchor\n    [(emojiPickerIf)]=\"toggled\"\n    (emojiPickerSelect)=\"handleSelection($event)\">😄</i>\n</div>\n\n<footer>\n\n</footer>\n"
+
+/***/ }),
+
+/***/ 195:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(74);
@@ -230,14 +230,18 @@ module.exports = __webpack_require__(74);
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__emoji_picker_anchor_directive__ = __webpack_require__(93);
-/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_0__emoji_picker_anchor_directive__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1____ = __webpack_require__(52);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__emoji_picker_position_directive__ = __webpack_require__(94);
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_0__emoji_picker_position_directive__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__emoji_picker_anchor_directive__ = __webpack_require__(93);
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_1__emoji_picker_anchor_directive__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2____ = __webpack_require__(52);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DIRECTIVES; });
 
 
+
 var DIRECTIVES = [
-    __WEBPACK_IMPORTED_MODULE_1____["b" /* EmojiPickerAnchorDirective */]
+    __WEBPACK_IMPORTED_MODULE_2____["b" /* EmojiPickerAnchorDirective */],
+    __WEBPACK_IMPORTED_MODULE_2____["c" /* EmojiPickerPositionDirective */]
 ];
 //# sourceMappingURL=index.js.map
 
@@ -296,15 +300,19 @@ var AppComponent = (function () {
     }
     AppComponent.prototype.handleSelection = function (e) {
         this.eventMock = JSON.stringify(e);
-        console.log(e);
+        console.log('Emoji event: ' + e);
+    };
+    AppComponent.prototype.handleCurrentPosition = function (e) {
+        this.eventPosMock = e;
+        console.log('Caret position: ' + e);
     };
     return AppComponent;
 }());
 AppComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Component */])({
         selector: 'app-root',
-        template: __webpack_require__(161),
-        styles: [__webpack_require__(159)]
+        template: __webpack_require__(162),
+        styles: [__webpack_require__(160)]
     })
 ], AppComponent);
 
@@ -320,7 +328,7 @@ AppComponent = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(78);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(79);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__src__ = __webpack_require__(96);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__src__ = __webpack_require__(97);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__(81);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -424,7 +432,7 @@ __decorate([
 EmojiButtonComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Component */])({
         selector: 'emoji-button',
-        styles: [__webpack_require__(151)],
+        styles: [__webpack_require__(152)],
         template: "\n<button\n  class=\"emoji-button\" \n  (click)=\"selectionEmitter.emit(dataToEmit || emoji)\">\n  {{emoji[0]}}\n</button>\n  "
     }),
     __metadata("design:paramtypes", [])
@@ -471,7 +479,7 @@ __decorate([
 EmojiCategoriesComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Component */])({
         selector: 'emoji-categories',
-        styles: [__webpack_require__(152)],
+        styles: [__webpack_require__(153)],
         template: "\n  <ng-container *ngFor=\"let category of emojisCategories\">\n    <emoji-button \n      (selection)=\"handleCategorySelection($event)\"\n      [dataToEmit]=\"category\"\n      [emoji]=\"category.icon\"></emoji-button>\n  </ng-container>\n  "
     }),
     __metadata("design:paramtypes", [])
@@ -513,7 +521,7 @@ __decorate([
 EmojiCategoryComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Component */])({
         selector: 'emoji-category',
-        styles: [__webpack_require__(153)],
+        styles: [__webpack_require__(154)],
         template: "\n  <p class=\"emoji-category\">{{category.name}}</p>\n  "
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["e" /* ElementRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["e" /* ElementRef */]) === "function" && _a || Object])
@@ -529,7 +537,7 @@ var _a;
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__emojis_data__ = __webpack_require__(95);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__emojis_data__ = __webpack_require__(96);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2____ = __webpack_require__(16);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EmojiContentComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -581,7 +589,7 @@ __decorate([
 EmojiContentComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Component */])({
         selector: 'emoji-content',
-        styles: [__webpack_require__(154)],
+        styles: [__webpack_require__(155)],
         template: "\n  <emoji-header \n    [emojisCategories]=\"emojisCategories\"\n    (categorySelection)=\"categorySelectionHandler($event)\"\n    (search)=\"searchHandler($event)\"></emoji-header>\n  <emoji-list [emojis]=\"emojis\" (emoji-selection)=\"emojiSelectionEmitter.emit($event)\"></emoji-list>\n  <emoji-footer></emoji-footer>\n  "
     }),
     __metadata("design:paramtypes", [])
@@ -616,7 +624,7 @@ var EmojiFooterComponent = (function () {
 EmojiFooterComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Component */])({
         selector: 'emoji-footer',
-        styles: [__webpack_require__(155)],
+        styles: [__webpack_require__(156)],
         template: "\n  <footer class=\"emoji-footer\"></footer>\n  "
     }),
     __metadata("design:paramtypes", [])
@@ -664,7 +672,7 @@ __decorate([
 EmojiHeaderComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Component */])({
         selector: 'emoji-header',
-        styles: [__webpack_require__(156)],
+        styles: [__webpack_require__(157)],
         template: "\n  <emoji-categories [emojisCategories]=\"emojisCategories\" (categorySelection)=\"categorySelection.emit($event)\"></emoji-categories>\n  <emoji-search (search)=\"searchEmitter.emit($event)\"></emoji-search>\n  "
     }),
     __metadata("design:paramtypes", [])
@@ -720,7 +728,7 @@ __decorate([
 EmojiListComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Component */])({
         selector: 'emoji-list',
-        styles: [__webpack_require__(157)],
+        styles: [__webpack_require__(158)],
         template: "\n  <div class=\"emoji-list\">\n    <ng-container *ngFor=\"let emojiCategory of emojis | notEmptyEmojiCategory\">\n      <emoji-category [category]=\"emojiCategory\"></emoji-category>\n      <div class=\"emoji-buttons\">\n        <emoji-button \n        *ngFor=\"let emoji of emojiCategory.emojis\"\n        (selection)=\"emojiSelectionEmitter.emit($event)\"\n        [emoji]=\"emoji\"></emoji-button>\n      </div>\n    </ng-container>\n  </div>\n  "
     }),
     __metadata("design:paramtypes", [])
@@ -792,7 +800,7 @@ __decorate([
 EmojiPickerComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Component */])({
         selector: 'emoji-picker',
-        styles: [':host { position: absolute; }'],
+        styles: [':host { position: absolute; z-index: 9999; }'],
         template: "\n  <emoji-content (emoji-selection)=\"selectionEmitter.emit($event)\"></emoji-content>\n  ",
         host: {
             '(document:mousedown)': 'onBackground($event)',
@@ -814,7 +822,7 @@ var _a, _b;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__ = __webpack_require__(22);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_throttleTime__ = __webpack_require__(166);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_throttleTime__ = __webpack_require__(167);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_throttleTime___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_throttleTime__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_takeUntil__ = __webpack_require__(65);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_takeUntil___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_takeUntil__);
@@ -867,7 +875,7 @@ __decorate([
 EmojiSearchComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Component */])({
         selector: 'emoji-search',
-        styles: [__webpack_require__(158)],
+        styles: [__webpack_require__(159)],
         template: "\n  <input type=\"text\" autocomplete=\"off\" #input (input)=\"handleInputChange($event.target.value)\" placeholder=\"Search\"/>\n  "
     }),
     __metadata("design:paramtypes", [typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["i" /* Renderer */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["i" /* Renderer */]) === "function" && _c || Object])
@@ -887,7 +895,7 @@ var _a, _b, _c;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_takeUntil__ = __webpack_require__(65);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_takeUntil___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_takeUntil__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_distinctUntilChanged__ = __webpack_require__(165);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_distinctUntilChanged__ = __webpack_require__(166);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_distinctUntilChanged___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_distinctUntilChanged__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components__ = __webpack_require__(16);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EmojiPickerAnchorDirective; });
@@ -983,10 +991,86 @@ var _a, _b, _c;
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EmojiPickerPositionDirective; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var EmojiPickerPositionDirective = (function () {
+    function EmojiPickerPositionDirective(_el) {
+        this._el = _el;
+        this.positionEmitter = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["f" /* EventEmitter */]();
+    }
+    EmojiPickerPositionDirective.prototype.ngOnInit = function () {
+        if (!this._el.nativeElement.getAttribute('contenteditable') && this._el.nativeElement.tagName !== 'INPUT') {
+            throw new Error('(emojiPickerPositionEmitter) should only work on contenteditable enabled or input elements');
+        }
+        this._doc = this._el.nativeElement.ownerDocument || this._el.nativeElement.document;
+        this._win = this._doc.defaultView || this._doc.parentWindow;
+    };
+    EmojiPickerPositionDirective.prototype.updateCaretPosition = function () {
+        var position = this.getCaretCharacterOffsetWithin(this._win, this._doc, this._el.nativeElement);
+        this.positionEmitter.emit(position);
+    };
+    EmojiPickerPositionDirective.prototype.getCaretCharacterOffsetWithin = function (win, doc, element) {
+        var caretOffset = 0, sel;
+        if (typeof win.getSelection != "undefined") {
+            sel = win.getSelection();
+            if (sel.rangeCount > 0) {
+                var range = win.getSelection().getRangeAt(0);
+                var preCaretRange = range.cloneRange();
+                preCaretRange.selectNodeContents(element);
+                preCaretRange.setEnd(range.endContainer, range.endOffset);
+                caretOffset = preCaretRange.toString().length;
+            }
+        }
+        else if ((sel = doc.selection) && sel.type != "Control") {
+            var textRange = sel.createRange();
+            var preCaretTextRange = doc.body.createTextRange();
+            preCaretTextRange.moveToElementText(element);
+            preCaretTextRange.setEndPoint("EndToEnd", textRange);
+            caretOffset = preCaretTextRange.text.length;
+        }
+        return caretOffset;
+    };
+    return EmojiPickerPositionDirective;
+}());
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["g" /* Output */])('emojiPickerPositionEmitter'),
+    __metadata("design:type", Object)
+], EmojiPickerPositionDirective.prototype, "positionEmitter", void 0);
+EmojiPickerPositionDirective = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Directive */])({
+        selector: '[emojiPickerPositionEmitter]',
+        host: {
+            '(keyup)': 'updateCaretPosition()',
+            '(mouseup)': 'updateCaretPosition()',
+            '(focus)': 'updateCaretPosition()'
+        }
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["e" /* ElementRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["e" /* ElementRef */]) === "function" && _a || Object])
+], EmojiPickerPositionDirective);
+
+var _a;
+//# sourceMappingURL=emoji-picker-position.directive.js.map
+
+/***/ }),
+
+/***/ 95:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__(31);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__directives__ = __webpack_require__(52);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pipes__ = __webpack_require__(98);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pipes__ = __webpack_require__(99);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EmojiPickerModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1028,7 +1112,7 @@ var EmojiPickerModule_1;
 
 /***/ }),
 
-/***/ 95:
+/***/ 96:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3909,18 +3993,18 @@ var EMOJIS = [
 
 /***/ }),
 
-/***/ 96:
+/***/ 97:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__emoji_picker_module__ = __webpack_require__(94);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__emoji_picker_module__ = __webpack_require__(95);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__emoji_picker_module__["a"]; });
 
 //# sourceMappingURL=index.js.map
 
 /***/ }),
 
-/***/ 97:
+/***/ 98:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3951,11 +4035,11 @@ EmojiEmptyCategoryPipe = __decorate([
 
 /***/ }),
 
-/***/ 98:
+/***/ 99:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__emoji_empty_category_pipe__ = __webpack_require__(97);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__emoji_empty_category_pipe__ = __webpack_require__(98);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PIPES; });
 
 var PIPES = [
@@ -3965,5 +4049,5 @@ var PIPES = [
 
 /***/ })
 
-},[194]);
+},[195]);
 //# sourceMappingURL=main.bundle.js.map
