@@ -4,6 +4,113 @@ webpackJsonp([1,4],{
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CaretEvent; });
+var CaretEvent = (function () {
+    function CaretEvent(data) {
+        Object.assign(this, data);
+    }
+    CaretEvent.prototype.clone = function () {
+        return new CaretEvent(Object.assign({}, this, {
+            caretRange: this.caretRange && this.caretRange.cloneRange ? this.caretRange.cloneRange() : this.caretRange
+        }));
+    };
+    CaretEvent.generateNullEvent = function () {
+        return new CaretEvent({
+            caretOffset: 0,
+            textContent: ''
+        });
+    };
+    CaretEvent.comparePropsOfObject = function (r1, r2) {
+        for (var k in r1) {
+            if (r1[k] !== r2[k]) {
+                return false;
+            }
+        }
+        return true;
+    };
+    CaretEvent.compare = function (e1, e2) {
+        var changed = 
+        /** different when either caretRange is omitted while other exists */
+        (!e1.caretRange && e2.caretRange) ||
+            (e1.caretRange && !e2.caretRange) ||
+            /** different when offset has changed */
+            (e1.caretOffset !== e2.caretOffset) ||
+            /** different when textContent has changed */
+            (e1.textContent !== e2.textContent) ||
+            /** different when range object properties changed */
+            !this.comparePropsOfObject(e1.caretRange, e2.caretRange);
+        return !changed;
+    };
+    CaretEvent.generateCaretEvent = function (win, doc, element) {
+        var caretOffset = 0, sel, caretRange, textContent = element.textContent;
+        if (element.tagName.toLowerCase() === 'input') {
+            return new CaretEvent({
+                caretOffset: element.selectionEnd,
+                textContent: element.value
+            });
+        }
+        if (typeof win.getSelection != "undefined") {
+            sel = win.getSelection();
+            if (sel.rangeCount > 0) {
+                var range = win.getSelection().getRangeAt(0);
+                var preCaretRange = range.cloneRange();
+                preCaretRange.selectNodeContents(element);
+                preCaretRange.setEnd(range.endContainer, range.endOffset);
+                caretOffset = preCaretRange.toString().length;
+                /** Keeping a reference of the range to emit */
+                caretRange = range.cloneRange();
+            }
+        }
+        else if ((sel = doc.selection) && sel.type != "Control") {
+            var textRange = sel.createRange();
+            var preCaretTextRange = doc.body.createTextRange();
+            preCaretTextRange.moveToElementText(element);
+            preCaretTextRange.setEndPoint("EndToEnd", textRange);
+            caretOffset = preCaretTextRange.text.length;
+            /** Keeping a reference of the range to emit and making it compatible */
+            caretRange = textRange.duplicate();
+            caretRange.insertNode = function (e) {
+                var container = document.createElement("div");
+                container.appendChild(e);
+                caretRange.pasteHTML(container.innerHTML);
+            };
+        }
+        return new CaretEvent({
+            caretOffset: caretOffset,
+            caretRange: caretRange,
+            textContent: textContent
+        });
+    };
+    return CaretEvent;
+}());
+
+//# sourceMappingURL=caret-event.js.map
+
+/***/ }),
+
+/***/ 101:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EmojiEvent; });
+var EmojiEvent = (function () {
+    function EmojiEvent(data) {
+        Object.assign(this, data);
+    }
+    EmojiEvent.fromArray = function (emojiArray) {
+        return new EmojiEvent({ char: emojiArray[0], label: emojiArray[1] });
+    };
+    return EmojiEvent;
+}());
+
+//# sourceMappingURL=emoji-event.js.map
+
+/***/ }),
+
+/***/ 102:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EMOJIS; });
 var EMOJIS = [
     {
@@ -2881,7 +2988,21 @@ var EMOJIS = [
 
 /***/ }),
 
-/***/ 101:
+/***/ 103:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__caret_event__ = __webpack_require__(100);
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_0__caret_event__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__emoji_event__ = __webpack_require__(101);
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_1__emoji_event__["a"]; });
+
+
+//# sourceMappingURL=index.js.map
+
+/***/ }),
+
+/***/ 104:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2912,11 +3033,11 @@ EmojiEmptyCategoryPipe = __decorate([
 
 /***/ }),
 
-/***/ 102:
+/***/ 105:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__emoji_empty_category_pipe__ = __webpack_require__(101);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__emoji_empty_category_pipe__ = __webpack_require__(104);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PIPES; });
 
 var PIPES = [
@@ -2926,7 +3047,7 @@ var PIPES = [
 
 /***/ }),
 
-/***/ 155:
+/***/ 158:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(9)();
@@ -2944,7 +3065,7 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 156:
+/***/ 159:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(9)();
@@ -2962,7 +3083,7 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 157:
+/***/ 160:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(9)();
@@ -2980,7 +3101,7 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 158:
+/***/ 161:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(9)();
@@ -2998,7 +3119,7 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 159:
+/***/ 162:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(9)();
@@ -3016,7 +3137,7 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 160:
+/***/ 163:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(9)();
@@ -3034,7 +3155,7 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 161:
+/***/ 164:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(9)();
@@ -3052,7 +3173,7 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 162:
+/***/ 165:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(9)();
@@ -3070,7 +3191,7 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 163:
+/***/ 166:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(9)();
@@ -3078,7 +3199,7 @@ exports = module.exports = __webpack_require__(9)();
 
 
 // module
-exports.push([module.i, ".emoji-toggle-button {\n  font-style: normal;\n  padding: 5px;\n  cursor: pointer;\n  font-size: 3rem;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n}\n\n.emoji-content-editable {\n  background: #eee;\n  border: 1px solid #ccc;\n  padding: 0.5rem 0.25rem;\n}\n\npre.code-pre {\n  background: #1d1f20;\n  color: #fff;\n  white-space: pre-wrap;\n  padding: 2rem 1rem;\n}\n\n.code-pre .code-input {\n  color: #f3ef9c;\n  font-family: monospace;\n  background: none;\n  outline: none;\n  border: none;\n  text-align: center;\n  font-size: 0.75rem;\n}\n\n.main {\n  text-align: center;\n}\n\nheader {\n  text-align: center;\n  font-family: 'Arial', 'Arial Black', 'Tahoma', 'Trebuchet MS', 'Verdana';\n}\n", "", {"version":3,"sources":["/Users/lsharir/500tech/EmojiPanel-for-Angular/demo/src/app/app.component.css"],"names":[],"mappings":"AAAA;EACE,mBAAmB;EACnB,aAAa;EACb,gBAAgB;EAChB,gBAAgB;EAChB,0BAAkB;KAAlB,uBAAkB;MAAlB,sBAAkB;UAAlB,kBAAkB;CACnB;;AAED;EACE,iBAAiB;EACjB,uBAAuB;EACvB,wBAAwB;CACzB;;AAED;EACE,oBAAoB;EACpB,YAAY;EACZ,sBAAsB;EACtB,mBAAmB;CACpB;;AAED;EACE,eAAe;EACf,uBAAuB;EACvB,iBAAiB;EACjB,cAAc;EACd,aAAa;EACb,mBAAmB;EACnB,mBAAmB;CACpB;;AAED;EACE,mBAAmB;CACpB;;AAED;EACE,mBAAmB;EACnB,yEAAyE;CAC1E","file":"app.component.css","sourcesContent":[".emoji-toggle-button {\n  font-style: normal;\n  padding: 5px;\n  cursor: pointer;\n  font-size: 3rem;\n  user-select: none;\n}\n\n.emoji-content-editable {\n  background: #eee;\n  border: 1px solid #ccc;\n  padding: 0.5rem 0.25rem;\n}\n\npre.code-pre {\n  background: #1d1f20;\n  color: #fff;\n  white-space: pre-wrap;\n  padding: 2rem 1rem;\n}\n\n.code-pre .code-input {\n  color: #f3ef9c;\n  font-family: monospace;\n  background: none;\n  outline: none;\n  border: none;\n  text-align: center;\n  font-size: 0.75rem;\n}\n\n.main {\n  text-align: center;\n}\n\nheader {\n  text-align: center;\n  font-family: 'Arial', 'Arial Black', 'Tahoma', 'Trebuchet MS', 'Verdana';\n}\n"],"sourceRoot":""}]);
+exports.push([module.i, ".emoji-toggle-button {\n  font-style: normal;\n  padding: 5px;\n  cursor: pointer;\n  font-size: 3rem;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n}\n\n.emoji-content-editable {\n  background: #eee;\n  border: 1px solid #ccc;\n  padding: 0.5rem 0.25rem;\n}\n\npre.code-pre {\n  background: #1d1f20;\n  color: #fff;\n  white-space: pre-wrap;\n  padding: 2rem 1rem;\n  line-height: 1.5;\n}\n\n.code-pre .code-input {\n  color: #f3ef9c;\n  font-family: monospace;\n  background: none;\n  outline: none;\n  border: none;\n  text-align: center;\n  font-size: 0.75rem;\n}\n\n.code-pre .code-special {\n  color: #88d2d0;\n}\n\n.main {\n  text-align: center;\n}\n\nheader {\n  text-align: center;\n  font-family: 'Arial', 'Arial Black', 'Tahoma', 'Trebuchet MS', 'Verdana';\n}\n", "", {"version":3,"sources":["/Users/lsharir/500tech/EmojiPanel-for-Angular/demo/src/app/app.component.css"],"names":[],"mappings":"AAAA;EACE,mBAAmB;EACnB,aAAa;EACb,gBAAgB;EAChB,gBAAgB;EAChB,0BAAkB;KAAlB,uBAAkB;MAAlB,sBAAkB;UAAlB,kBAAkB;CACnB;;AAED;EACE,iBAAiB;EACjB,uBAAuB;EACvB,wBAAwB;CACzB;;AAED;EACE,oBAAoB;EACpB,YAAY;EACZ,sBAAsB;EACtB,mBAAmB;EACnB,iBAAiB;CAClB;;AAED;EACE,eAAe;EACf,uBAAuB;EACvB,iBAAiB;EACjB,cAAc;EACd,aAAa;EACb,mBAAmB;EACnB,mBAAmB;CACpB;;AAED;EACE,eAAe;CAChB;;AAED;EACE,mBAAmB;CACpB;;AAED;EACE,mBAAmB;EACnB,yEAAyE;CAC1E","file":"app.component.css","sourcesContent":[".emoji-toggle-button {\n  font-style: normal;\n  padding: 5px;\n  cursor: pointer;\n  font-size: 3rem;\n  user-select: none;\n}\n\n.emoji-content-editable {\n  background: #eee;\n  border: 1px solid #ccc;\n  padding: 0.5rem 0.25rem;\n}\n\npre.code-pre {\n  background: #1d1f20;\n  color: #fff;\n  white-space: pre-wrap;\n  padding: 2rem 1rem;\n  line-height: 1.5;\n}\n\n.code-pre .code-input {\n  color: #f3ef9c;\n  font-family: monospace;\n  background: none;\n  outline: none;\n  border: none;\n  text-align: center;\n  font-size: 0.75rem;\n}\n\n.code-pre .code-special {\n  color: #88d2d0;\n}\n\n.main {\n  text-align: center;\n}\n\nheader {\n  text-align: center;\n  font-family: 'Arial', 'Arial Black', 'Tahoma', 'Trebuchet MS', 'Verdana';\n}\n"],"sourceRoot":""}]);
 
 // exports
 
@@ -3088,10 +3209,10 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 165:
+/***/ 168:
 /***/ (function(module, exports) {
 
-module.exports = "<header>\n  <h1>Angular Emoji Picker</h1>\n</header>\n\n<code><pre class=\"code-pre\">\n  contenteditable:\n  (emojiPickerCaretEmitter)=\"handleCurrentCaret($event{{' = ' + eventPosMock}})\"\n\n  😄:\n  [(emojiPickerIf)]=\"{{toggled}}\"\n  [emojiPickerDirection]=\"<input class=\"code-input\" [style.width.px]=\"direction.length * 7.5\" type=\"text\" [(ngModel)]=\"direction\"/>\"\n  (emojiPickerSelect)=\"handleSelection($event{{' = ' + eventMock}})\"\n</pre></code>\n\n<div class=\"main\">\n  <div class=\"emoji-content-editable\"\n    (emojiPickerCaretEmitter)=\"handleCurrentCaret($event)\"\n    contenteditable=\"true\">This is a contenteditable</div>\n  <i\n    class=\"emoji-toggle-button\"\n    (click)=\"toggled = !toggled\"\n    [(emojiPickerIf)]=\"toggled\"\n    [emojiPickerDirection]=\"direction\"\n    (emojiPickerSelect)=\"handleSelection($event)\">😄</i>\n</div>\n\n<footer>\n\n</footer>\n"
+module.exports = "<code><pre class=\"code-pre\"><![CDATA[\n  <div\n    contenteditable=\"true\"\n    (emojiPickerCaretEmitter)=\"handleCurrentCaret(]]><span class=\"code-special\">$event{{' = ' + eventPosMock}}</span><![CDATA[)\">\n    {{content}}\n  </div>\n\n  <i\n    class=\"emoji-toggle-button\"\n    (click)=\"toggled = !toggled\"\n    [(emojiPickerIf)]=\"]]><span class=\"code-special\">{{toggled}}</span><![CDATA[\"\n    [emojiPickerDirection]=\"']]><input class=\"code-input\" [style.width.px]=\"direction.length * 7.5\" type=\"text\" [(ngModel)]=\"direction\" /><![CDATA['\"\n    (emojiPickerSelect)=\"handleSelection(]]><span class=\"code-special\">$event{{' = ' + eventMock}}</span><![CDATA[)\">😄</i>\n]]></pre></code>\n\n<header>\n  <h1>Angular Emoji Picker</h1>\n</header>\n\n<div class=\"main\">\n  <div class=\"emoji-content-editable\"\n    (emojiPickerCaretEmitter)=\"handleCurrentCaret($event)\"\n    (input)=\"content = $event.target.textContent\"\n    [textContent]=\"content\"\n    contenteditable=\"true\"></div>\n  <i\n    class=\"emoji-toggle-button\"\n    (click)=\"toggled = !toggled\"\n    [(emojiPickerIf)]=\"toggled\"\n    [emojiPickerDirection]=\"direction\"\n    (emojiPickerSelect)=\"handleSelection($event)\">😄</i>\n</div>\n\n<footer>\n\n</footer>\n"
 
 /***/ }),
 
@@ -3099,23 +3220,23 @@ module.exports = "<header>\n  <h1>Angular Emoji Picker</h1>\n</header>\n\n<code>
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__emoji_button_component__ = __webpack_require__(87);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__emoji_button_component__ = __webpack_require__(88);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_0__emoji_button_component__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__emoji_content_component__ = __webpack_require__(90);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__emoji_content_component__ = __webpack_require__(91);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "d", function() { return __WEBPACK_IMPORTED_MODULE_1__emoji_content_component__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__emoji_picker_component__ = __webpack_require__(94);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__emoji_picker_component__ = __webpack_require__(95);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_2__emoji_picker_component__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__emoji_header_component__ = __webpack_require__(92);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__emoji_header_component__ = __webpack_require__(93);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "f", function() { return __WEBPACK_IMPORTED_MODULE_3__emoji_header_component__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__emoji_list_component__ = __webpack_require__(93);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__emoji_list_component__ = __webpack_require__(94);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "e", function() { return __WEBPACK_IMPORTED_MODULE_4__emoji_list_component__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__emoji_categories_component__ = __webpack_require__(88);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__emoji_categories_component__ = __webpack_require__(89);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "h", function() { return __WEBPACK_IMPORTED_MODULE_5__emoji_categories_component__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__emoji_search_component__ = __webpack_require__(95);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__emoji_search_component__ = __webpack_require__(96);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "g", function() { return __WEBPACK_IMPORTED_MODULE_6__emoji_search_component__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__emoji_category_component__ = __webpack_require__(89);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__emoji_category_component__ = __webpack_require__(90);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "i", function() { return __WEBPACK_IMPORTED_MODULE_7__emoji_category_component__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__emoji_footer_component__ = __webpack_require__(91);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__emoji_footer_component__ = __webpack_require__(92);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "j", function() { return __WEBPACK_IMPORTED_MODULE_8__emoji_footer_component__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9____ = __webpack_require__(17);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return COMPONENTS; });
@@ -3144,23 +3265,38 @@ var COMPONENTS = [
 
 /***/ }),
 
-/***/ 198:
+/***/ 201:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(77);
+module.exports = __webpack_require__(78);
 
 
 /***/ }),
 
-/***/ 53:
+/***/ 33:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__emoji_picker_caret_directive__ = __webpack_require__(97);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__emoji_picker_module__ = __webpack_require__(99);
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__emoji_picker_module__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__lib__ = __webpack_require__(103);
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_1__lib__["a"]; });
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_1__lib__["b"]; });
+
+
+//# sourceMappingURL=index.js.map
+
+/***/ }),
+
+/***/ 54:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__emoji_picker_caret_directive__ = __webpack_require__(98);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_0__emoji_picker_caret_directive__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__emoji_picker_api_directive__ = __webpack_require__(96);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__emoji_picker_api_directive__ = __webpack_require__(97);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_1__emoji_picker_api_directive__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2____ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2____ = __webpack_require__(54);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DIRECTIVES; });
 
 
@@ -3173,7 +3309,7 @@ var DIRECTIVES = [
 
 /***/ }),
 
-/***/ 54:
+/***/ 55:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3189,7 +3325,7 @@ var DIRECTIONS;
 
 /***/ }),
 
-/***/ 76:
+/***/ 77:
 /***/ (function(module, exports) {
 
 function webpackEmptyContext(req) {
@@ -3198,20 +3334,20 @@ function webpackEmptyContext(req) {
 webpackEmptyContext.keys = function() { return []; };
 webpackEmptyContext.resolve = webpackEmptyContext;
 module.exports = webpackEmptyContext;
-webpackEmptyContext.id = 76;
+webpackEmptyContext.id = 77;
 
 
 /***/ }),
 
-/***/ 77:
+/***/ 78:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__ = __webpack_require__(83);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_app_module__ = __webpack_require__(85);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__(86);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__ = __webpack_require__(84);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_app_module__ = __webpack_require__(86);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__(87);
 
 
 
@@ -3224,7 +3360,7 @@ __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dyna
 
 /***/ }),
 
-/***/ 84:
+/***/ 85:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3240,22 +3376,24 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var AppComponent = (function () {
     function AppComponent() {
         this.direction = Math.random() > 0.5 ? (Math.random() > 0.5 ? 'top' : 'bottom') : (Math.random() > 0.5 ? 'right' : 'left');
+        this.toggled = false;
+        this.content = 'Type letters, enter emojis, go nuts...';
     }
-    AppComponent.prototype.handleSelection = function (e) {
-        this.eventMock = JSON.stringify(e);
-        console.log('Emoji event: ' + this.eventMock);
+    AppComponent.prototype.handleSelection = function (event) {
+        this.content = this.content.slice(0, this._lastCaretEvent.caretOffset) + event.char + this.content.slice(this._lastCaretEvent.caretOffset);
+        this.eventMock = JSON.stringify(event);
     };
-    AppComponent.prototype.handleCurrentCaret = function (e) {
-        this.eventPosMock = "{ caretOffset : " + e.caretOffset + ", caretRange: Range{...} }";
-        console.log('Caret position: ' + this.eventPosMock);
+    AppComponent.prototype.handleCurrentCaret = function (event) {
+        this._lastCaretEvent = event;
+        this.eventPosMock = "{ caretOffset : " + event.caretOffset + ", caretRange: Range{...}, textContent: " + event.textContent + " }";
     };
     return AppComponent;
 }());
 AppComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Component */])({
         selector: 'app-root',
-        template: __webpack_require__(165),
-        styles: [__webpack_require__(163)]
+        template: __webpack_require__(168),
+        styles: [__webpack_require__(166)]
     })
 ], AppComponent);
 
@@ -3263,16 +3401,16 @@ AppComponent = __decorate([
 
 /***/ }),
 
-/***/ 85:
+/***/ 86:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(24);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(81);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(82);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__src__ = __webpack_require__(99);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__(84);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(82);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(83);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__src__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__(85);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -3311,7 +3449,7 @@ AppModule = __decorate([
 
 /***/ }),
 
-/***/ 86:
+/***/ 87:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3328,7 +3466,7 @@ var environment = {
 
 /***/ }),
 
-/***/ 87:
+/***/ 88:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3375,7 +3513,7 @@ __decorate([
 EmojiButtonComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Component */])({
         selector: 'emoji-button',
-        styles: [__webpack_require__(155)],
+        styles: [__webpack_require__(158)],
         template: "\n<button\n  class=\"emoji-button\" \n  (click)=\"selectionEmitter.emit(dataToEmit || emoji)\">\n  {{emoji[0]}}\n</button>\n  "
     }),
     __metadata("design:paramtypes", [])
@@ -3386,7 +3524,7 @@ var _a;
 
 /***/ }),
 
-/***/ 88:
+/***/ 89:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3422,7 +3560,7 @@ __decorate([
 EmojiCategoriesComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Component */])({
         selector: 'emoji-categories',
-        styles: [__webpack_require__(156)],
+        styles: [__webpack_require__(159)],
         template: "\n  <ng-container *ngFor=\"let category of emojisCategories\">\n    <emoji-button \n      (selection)=\"handleCategorySelection($event)\"\n      [dataToEmit]=\"category\"\n      [emoji]=\"category.icon\"></emoji-button>\n  </ng-container>\n  "
     }),
     __metadata("design:paramtypes", [])
@@ -3432,7 +3570,7 @@ EmojiCategoriesComponent = __decorate([
 
 /***/ }),
 
-/***/ 89:
+/***/ 90:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3464,7 +3602,7 @@ __decorate([
 EmojiCategoryComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Component */])({
         selector: 'emoji-category',
-        styles: [__webpack_require__(157)],
+        styles: [__webpack_require__(160)],
         template: "\n  <p class=\"emoji-category\">{{category.name}}</p>\n  "
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["e" /* ElementRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["e" /* ElementRef */]) === "function" && _a || Object])
@@ -3475,12 +3613,12 @@ var _a;
 
 /***/ }),
 
-/***/ 90:
+/***/ 91:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__lib_emojis_data__ = __webpack_require__(100);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__lib_emojis_data__ = __webpack_require__(102);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2____ = __webpack_require__(17);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EmojiContentComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -3532,7 +3670,7 @@ __decorate([
 EmojiContentComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Component */])({
         selector: 'emoji-content',
-        styles: [__webpack_require__(158)],
+        styles: [__webpack_require__(161)],
         template: "\n  <emoji-header \n    [emojisCategories]=\"emojisCategories\"\n    (categorySelection)=\"categorySelectionHandler($event)\"\n    (search)=\"searchHandler($event)\"></emoji-header>\n  <emoji-list [emojis]=\"emojis\" (emoji-selection)=\"emojiSelectionEmitter.emit($event)\"></emoji-list>\n  <emoji-footer></emoji-footer>\n  "
     }),
     __metadata("design:paramtypes", [])
@@ -3543,7 +3681,7 @@ var _a;
 
 /***/ }),
 
-/***/ 91:
+/***/ 92:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3567,7 +3705,7 @@ var EmojiFooterComponent = (function () {
 EmojiFooterComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Component */])({
         selector: 'emoji-footer',
-        styles: [__webpack_require__(159)],
+        styles: [__webpack_require__(162)],
         template: "\n  <footer class=\"emoji-footer\"></footer>\n  "
     }),
     __metadata("design:paramtypes", [])
@@ -3577,7 +3715,7 @@ EmojiFooterComponent = __decorate([
 
 /***/ }),
 
-/***/ 92:
+/***/ 93:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3615,7 +3753,7 @@ __decorate([
 EmojiHeaderComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Component */])({
         selector: 'emoji-header',
-        styles: [__webpack_require__(160)],
+        styles: [__webpack_require__(163)],
         template: "\n  <emoji-categories [emojisCategories]=\"emojisCategories\" (categorySelection)=\"categorySelection.emit($event)\"></emoji-categories>\n  <emoji-search (search)=\"searchEmitter.emit($event)\"></emoji-search>\n  "
     }),
     __metadata("design:paramtypes", [])
@@ -3625,7 +3763,7 @@ EmojiHeaderComponent = __decorate([
 
 /***/ }),
 
-/***/ 93:
+/***/ 94:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3671,7 +3809,7 @@ __decorate([
 EmojiListComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Component */])({
         selector: 'emoji-list',
-        styles: [__webpack_require__(161)],
+        styles: [__webpack_require__(164)],
         template: "\n  <div class=\"emoji-list\">\n    <ng-container *ngFor=\"let emojiCategory of emojis | notEmptyEmojiCategory\">\n      <emoji-category [category]=\"emojiCategory\"></emoji-category>\n      <div class=\"emoji-buttons\">\n        <emoji-button \n        *ngFor=\"let emoji of emojiCategory.emojis\"\n        (selection)=\"emojiSelectionEmitter.emit($event)\"\n        [emoji]=\"emoji\"></emoji-button>\n      </div>\n    </ng-container>\n  </div>\n  "
     }),
     __metadata("design:paramtypes", [])
@@ -3682,15 +3820,15 @@ var _a;
 
 /***/ }),
 
-/***/ 94:
+/***/ 95:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__lib_picker_directions__ = __webpack_require__(54);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__lib_picker_directions__ = __webpack_require__(55);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Subject__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Subject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Subject__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_debounceTime__ = __webpack_require__(169);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_debounceTime__ = __webpack_require__(172);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_debounceTime___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_debounceTime__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_takeUntil__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_takeUntil___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_takeUntil__);
@@ -3817,14 +3955,14 @@ var _a, _b;
 
 /***/ }),
 
-/***/ 95:
+/***/ 96:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_throttleTime__ = __webpack_require__(170);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_throttleTime__ = __webpack_require__(173);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_throttleTime___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_throttleTime__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_takeUntil__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_takeUntil___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_takeUntil__);
@@ -3877,7 +4015,7 @@ __decorate([
 EmojiSearchComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Component */])({
         selector: 'emoji-search',
-        styles: [__webpack_require__(162)],
+        styles: [__webpack_require__(165)],
         template: "\n  <input type=\"text\" autocomplete=\"off\" #input (input)=\"handleInputChange($event.target.value)\" placeholder=\"Search\"/>\n  "
     }),
     __metadata("design:paramtypes", [typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["i" /* Renderer */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["i" /* Renderer */]) === "function" && _c || Object])
@@ -3888,7 +4026,7 @@ var _a, _b, _c;
 
 /***/ }),
 
-/***/ 96:
+/***/ 97:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3897,10 +4035,11 @@ var _a, _b, _c;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_takeUntil__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_takeUntil___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_takeUntil__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_distinctUntilChanged__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_distinctUntilChanged__ = __webpack_require__(68);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_distinctUntilChanged___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_distinctUntilChanged__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components__ = __webpack_require__(17);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__lib_picker_directions__ = __webpack_require__(54);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__lib_picker_directions__ = __webpack_require__(55);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6____ = __webpack_require__(33);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EmojiPickerApiDirective; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -3911,6 +4050,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -3928,6 +4068,7 @@ var EmojiPickerApiDirective = (function () {
         this.selectEmitter = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["f" /* EventEmitter */]();
         this._emojiPickerOpenState = new __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__["Subject"]();
         this._destroyed = new __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__["Subject"]();
+        this._emojiSubs = [];
         this._emojiPickerOpenState
             .takeUntil(this._destroyed)
             .distinctUntilChanged()
@@ -3965,14 +4106,15 @@ var EmojiPickerApiDirective = (function () {
         this._emojiPickerFactory = this._emojiPickerFactory || this._cfr.resolveComponentFactory(__WEBPACK_IMPORTED_MODULE_4__components__["b" /* EmojiPickerComponent */]);
         this._emojiPickerRef = this._emojiPickerRef || this._vcr.createComponent(this._emojiPickerFactory);
         this._emojiPickerRef.instance.setPosition(this._el, this._directionCode);
-        this._emojiPickerRef.instance.pickerCloseEmitter.subscribe(function (event) { return _this.emojiPickerIfEmitter.emit(false); });
-        this._emojiPickerRef.instance.selectionEmitter.subscribe(function (event) { return _this.selectEmitter.emit(event); });
+        this._emojiSubs.push(this._emojiPickerRef.instance.pickerCloseEmitter.subscribe(function (event) { return _this.emojiPickerIfEmitter.emit(false); }), this._emojiPickerRef.instance.selectionEmitter.subscribe(function (event) { return _this.selectEmitter.emit(__WEBPACK_IMPORTED_MODULE_6____["b" /* EmojiEvent */].fromArray(event)); }));
     };
     EmojiPickerApiDirective.prototype.closePicker = function () {
         if (!this._emojiPickerRef || !this._emojiPickerRef.destroy) {
             return;
         }
+        this._emojiSubs.forEach(function (subscription) { return subscription.unsubscribe(); });
         this._emojiPickerRef.destroy();
+        this._emojiSubs = [];
         delete this._emojiPickerRef;
     };
     EmojiPickerApiDirective.prototype.ngOnDestroy = function () {
@@ -4013,7 +4155,7 @@ var _a, _b, _c;
 
 /***/ }),
 
-/***/ 97:
+/***/ 98:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4022,8 +4164,9 @@ var _a, _b, _c;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_takeUntil__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_takeUntil___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_takeUntil__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_distinctUntilChanged__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_distinctUntilChanged__ = __webpack_require__(68);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_distinctUntilChanged___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_distinctUntilChanged__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__src__ = __webpack_require__(33);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EmojiPickerCaretDirective; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -4038,12 +4181,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var EmojiPickerCaretDirective = (function () {
     function EmojiPickerCaretDirective(_el) {
+        var _this = this;
         this._el = _el;
         this.caretEmitter = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["f" /* EventEmitter */]();
-        this._position = new __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__["Subject"]();
-        this._destroyed = new __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__["Subject"]();
+        this._caretEvent$ = new __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__["Subject"]();
+        this._destroyed$ = new __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__["Subject"]();
+        this._lastCaretEvent = __WEBPACK_IMPORTED_MODULE_4__src__["c" /* CaretEvent */].generateNullEvent();
+        this._caretEvent$
+            .takeUntil(this._destroyed$)
+            .distinctUntilChanged(function (event1, event2) {
+            return __WEBPACK_IMPORTED_MODULE_4__src__["c" /* CaretEvent */].compare(event1, event2);
+        })
+            .subscribe(function (event) {
+            _this.caretEmitter.emit(event);
+            _this._lastCaretEvent = event.clone();
+        });
     }
     Object.defineProperty(EmojiPickerCaretDirective.prototype, "doc", {
         get: function () {
@@ -4066,74 +4221,30 @@ var EmojiPickerCaretDirective = (function () {
         configurable: true
     });
     EmojiPickerCaretDirective.prototype.ngOnInit = function () {
-        var _this = this;
-        if (!this._el.nativeElement.getAttribute('contenteditable') && this._el.nativeElement.tagName !== 'INPUT') {
+        if (!this._el.nativeElement.getAttribute('contenteditable') && this._el.nativeElement.tagName.toLowerCase() !== 'input') {
             throw new Error('(emojiPickerPositionEmitter) should only work on contenteditable enabled or input elements');
         }
-        this._position
-            .takeUntil(this._destroyed)
-            .distinctUntilChanged(function (event1, event2) {
-            if (
-            /** if range suddenly exists or disappears */
-            !event1.caretRange && event2.caretRange ||
-                event1.caretRange && !event2.caretRange ||
-                /** if caret offset has changed */
-                event1.caretOffset !== event2.caretOffset ||
-                /** if caret range has changed in these properties */
-                !_this.compareRangeObject(event1.caretRange, event2.caretRange)) {
-                return false;
-            }
-            return true;
-        })
-            .subscribe(function (event) { return _this.caretEmitter.emit(event); });
-    };
-    EmojiPickerCaretDirective.prototype.compareRangeObject = function (r1, r2) {
-        for (var k in r1) {
-            if (r1[k] !== r2[k]) {
-                return false;
-            }
-        }
-        return true;
     };
     EmojiPickerCaretDirective.prototype.ngOnDestroy = function () {
-        this._destroyed.next(true);
+        this._destroyed$.next(true);
     };
     EmojiPickerCaretDirective.prototype.updateCaretPosition = function () {
-        var position = this.getCaretCharacterOffsetWithin(this.win, this.doc, this._el.nativeElement);
-        this._position.next(position);
+        var cEvent = __WEBPACK_IMPORTED_MODULE_4__src__["c" /* CaretEvent */].generateCaretEvent(this.win, this.doc, this._el.nativeElement);
+        this._caretEvent$.next(cEvent);
     };
-    EmojiPickerCaretDirective.prototype.getCaretCharacterOffsetWithin = function (win, doc, element) {
-        var caretOffset = 0, sel, caretRange;
-        if (typeof win.getSelection != "undefined") {
-            sel = win.getSelection();
-            if (sel.rangeCount > 0) {
-                var range = win.getSelection().getRangeAt(0);
-                var preCaretRange = range.cloneRange();
-                preCaretRange.selectNodeContents(element);
-                preCaretRange.setEnd(range.endContainer, range.endOffset);
-                caretOffset = preCaretRange.toString().length;
-                /** Keeping a reference of the range to emit */
-                caretRange = range.cloneRange();
-            }
-        }
-        else if ((sel = doc.selection) && sel.type != "Control") {
-            var textRange = sel.createRange();
-            var preCaretTextRange = doc.body.createTextRange();
-            preCaretTextRange.moveToElementText(element);
-            preCaretTextRange.setEndPoint("EndToEnd", textRange);
-            caretOffset = preCaretTextRange.text.length;
-            /** Keeping a reference of the range to emit and making it compatible */
-            caretRange = textRange.duplicate();
-            caretRange.insertNode = function (e) {
-                var container = document.createElement("div");
-                container.appendChild(e);
-                caretRange.pasteHTML(container.innerHTML);
-            };
-        }
-        return {
-            caretOffset: caretOffset,
-            caretRange: caretRange
-        };
+    EmojiPickerCaretDirective.prototype.updateCaretDueMutation = function () {
+        var _this = this;
+        var cEvent = __WEBPACK_IMPORTED_MODULE_4__src__["c" /* CaretEvent */].generateCaretEvent(this.win, this.doc, this._el.nativeElement);
+        var textMovement = cEvent.textContent.length - this._lastCaretEvent.textContent.length;
+        cEvent.caretOffset = this._lastCaretEvent.caretOffset + textMovement;
+        /** change detection after DOMSubtreeModified event is weird
+         * ChangeDetectorRef.detectChanges(), ChangeDetectorRef.markForCheck(), ApplicationRef.tick(), NgZone.run()
+         * all of those methods did not work as expected.
+         * As a temporary hack I am emitting an event after a short timeout, which is fine due to the _caretEvent$ smart stream
+         */
+        setTimeout(function () {
+            _this._caretEvent$.next(cEvent);
+        });
     };
     return EmojiPickerCaretDirective;
 }());
@@ -4147,8 +4258,9 @@ EmojiPickerCaretDirective = __decorate([
         host: {
             '(keyup)': 'updateCaretPosition()',
             '(mouseup)': 'updateCaretPosition()',
+            '(selectstart)': 'updateCaretPosition()',
             '(focus)': 'updateCaretPosition()',
-            '(DOMSubtreeModified)': 'updateCaretPosition($event)'
+            '(DOMSubtreeModified)': 'updateCaretDueMutation($event)'
         }
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["e" /* ElementRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["e" /* ElementRef */]) === "function" && _a || Object])
@@ -4159,15 +4271,15 @@ var _a;
 
 /***/ }),
 
-/***/ 98:
+/***/ 99:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__(32);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components__ = __webpack_require__(17);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__directives__ = __webpack_require__(53);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pipes__ = __webpack_require__(102);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__directives__ = __webpack_require__(54);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pipes__ = __webpack_require__(105);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EmojiPickerModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -4207,18 +4319,7 @@ EmojiPickerModule = EmojiPickerModule_1 = __decorate([
 var EmojiPickerModule_1;
 //# sourceMappingURL=emoji-picker.module.js.map
 
-/***/ }),
-
-/***/ 99:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__emoji_picker_module__ = __webpack_require__(98);
-/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__emoji_picker_module__["a"]; });
-
-//# sourceMappingURL=index.js.map
-
 /***/ })
 
-},[198]);
+},[201]);
 //# sourceMappingURL=main.bundle.js.map
