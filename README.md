@@ -12,7 +12,7 @@ It's pretty basic right now, not very customizable but propagates necessary emoj
 ### Usage:
 
 ```
-import { EmojiPickerModule } from 'angular-emoji-picker';
+import { EmojiPickerModule } from 'angular2-emoji-picker';
 
 @NgModule({
   ...
