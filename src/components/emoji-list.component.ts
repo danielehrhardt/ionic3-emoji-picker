@@ -1,4 +1,4 @@
-import { Component, Input, ViewChildren, QueryList, ElementRef, forwardRef, Output, EventEmitter } from '@angular/core';
+import { Component, Input, ViewChildren, QueryList, forwardRef, Output, EventEmitter } from '@angular/core';
 import { EmojiCategoryComponent } from './';
 
 @Component({

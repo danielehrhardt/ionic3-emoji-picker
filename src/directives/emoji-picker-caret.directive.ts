@@ -1,4 +1,4 @@
-import { Directive, Output, EventEmitter, ElementRef, ChangeDetectorRef, ApplicationRef, NgZone } from '@angular/core';
+import { Directive, Output, EventEmitter, ElementRef} from '@angular/core';
 import { Subject } from "rxjs/Subject";
 import 'rxjs/add/operator/takeUntil';
 import 'rxjs/add/operator/distinctUntilChanged';
