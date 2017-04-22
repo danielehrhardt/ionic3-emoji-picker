@@ -1,5 +1,4 @@
-import { Component, ViewChild, Input, EventEmitter, Output, ElementRef, Renderer } from '@angular/core';
-import { EmojiContentComponent } from './';
+import { Component, EventEmitter, Output, ElementRef, Renderer } from '@angular/core';
 import { DIRECTIONS } from "../lib/picker-directions";
 import { Subject } from "rxjs/Subject";
 import 'rxjs/add/operator/debounceTime';

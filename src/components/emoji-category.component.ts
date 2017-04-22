@@ -1,4 +1,4 @@
-import { Component, Input, EventEmitter, Output, ElementRef } from '@angular/core';
+import { Component, Input, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'emoji-category',
