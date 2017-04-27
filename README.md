@@ -8,7 +8,7 @@ This project was forked from the [angular2-emoji-picker](https://github.com/lsha
 ### Usage:
 
 ```
-import { EmojiPickerModule } from 'angular2-emoji-picker';
+import { EmojiPickerModule } from '@ionic-tools/emoji-picker';
 
 @NgModule({
   ...
