@@ -1,5 +1,5 @@
 {
-  "name": "angular2-emoji-picker",
+  "name": "@ionic-tools/emoji-picker",
   "version": "1.2.2",
   "description": "Emoji picker for angular2+",
   "repository": {
@@ -39,5 +39,9 @@
     "core-js": ">=2.4.1",
     "rxjs": ">=5.1.0",
     "zone.js": ">=0.7.6"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/lsharir/angular2-emoji-picker/issues"
+  },
+  "homepage": "https://github.com/lsharir/angular2-emoji-picker#readme"
 }
