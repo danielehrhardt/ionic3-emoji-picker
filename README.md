@@ -1,12 +1,8 @@
-[![npm version](https://badge.fury.io/js/angular2-emoji-picker.svg)](https://badge.fury.io/js/angular2-emoji-picker)
+[![npm version](https://badge.fury.io/js/%40ionic-tools%2Femoji-picker.svg)](https://badge.fury.io/js/%40ionic-tools%2Femoji-picker)
 
-# Emoji picker for Angular
+# Emoji picker for Ionic 3
 
-This project was forked from the [EmojiPanel](https://github.com/danbovey/EmojiPanel) project created by [DanBovey](https://github.com/danbovey)
-
-It's pretty basic right now, not very customizable but propagates necessary emoji selection events and comes with basic search and category selection functionalities.
-
-[Demo](https://lsharir.github.io/angular2-emoji-picker/)
+This project was forked from the [angular2-emoji-picker](https://github.com/lsharir/angular2-emoji-picker) project created by [lsharir](https://github.com/lsharir)
 
 
 ### Usage:
