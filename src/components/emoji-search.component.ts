@@ -27,7 +27,7 @@ export class EmojiSearchComponent {
   }
   
   ngAfterViewInit() {
-    this._renderer.invokeElementMethod(this.input.nativeElement, 'focus');
+    //this._renderer.invokeElementMethod(this.input.nativeElement, 'focus');
   }
 
   handleInputChange(event) {
