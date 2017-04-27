@@ -1,0 +1,11 @@
+export * from './emoji-button.component';
+export * from './emoji-content.component';
+export * from './emoji-picker.component';
+export * from './emoji-header.component';
+export * from './emoji-list.component';
+export * from './emoji-categories.component';
+export * from './emoji-search.component';
+export * from './emoji-category.component';
+export * from './emoji-footer.component';
+import { EmojiPickerComponent, EmojiSearchComponent, EmojiCategoryComponent, EmojiFooterComponent } from './';
+export declare const COMPONENTS: (typeof EmojiPickerComponent | typeof EmojiCategoryComponent | typeof EmojiSearchComponent | typeof EmojiFooterComponent)[];
