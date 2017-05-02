@@ -6,7 +6,7 @@ import { Component, Input, EventEmitter, Output } from '@angular/core';
   template: `
 <button
   class="emoji-button" 
-  (mousedown)="$event.preventDefault(); selectionEmitter.emit(dataToEmit || emoji)">
+  (click)="selectionEmitter.emit(dataToEmit || emoji)">
   {{emoji[0]}}
 </button>
   `
