@@ -1,10 +1,10 @@
 {
   "name": "@ionic-tools/emoji-picker",
-  "version": "1.2.8",
+  "version": "1.3.0",
   "description": "Emoji picker for Ionic3",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/danielehrhardt/angular2-emoji-picker"
+    "url": "git+https://github.com/danielehrhardt/ionic3-emoji-picker"
   },
   "author": "Daniel Ehrhardt <daniel.ehrhardt@bussmann-it.de>",
   "main": "./lib-dist/index.js",
@@ -45,7 +45,7 @@
     "zone.js": ">=0.7.6"
   },
   "bugs": {
-    "url": "https://github.com/danielehrhardt/angular2-emoji-picker/issues"
+    "url": "https://github.com/danielehrhardt/ionic3-emoji-picker/issues"
   },
-  "homepage": "https://github.com/danielehrhardt/angular2-emoji-picker#readme"
+  "homepage": "https://github.com/danielehrhardt/ionic3-emoji-picker#readme"
 }
