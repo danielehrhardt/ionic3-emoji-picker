@@ -9,7 +9,7 @@ export declare class EmojiContentComponent {
         "name": string;
         "icon": string[];
     }[];
-    emojisCategories: ({} & {
+    emojisCategories: ({
         "emojis": string[][];
         "name": string;
         "icon": string[];
