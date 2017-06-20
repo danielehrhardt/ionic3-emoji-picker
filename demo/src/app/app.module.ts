@@ -4,7 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { EmojiPickerModule } from '../../../src';
-import { CaretEvent, EmojiEvent } from '../../../src/lib';
 import { AppComponent } from './app.component';
 
 
@@ -19,10 +18,7 @@ import { AppComponent } from './app.component';
     HttpModule,
     EmojiPickerModule.forRoot()
   ],
-  providers: [
-    CaretEvent,
-    EmojiEvent
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
