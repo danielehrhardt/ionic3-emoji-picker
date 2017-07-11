@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output, ViewChild, Renderer, ElementRef } from '@angular/core';
+import { Component, EventEmitter, Output, ViewChild, Renderer2, ElementRef } from '@angular/core';
 import { Subject } from "rxjs/Subject";
 import "rxjs/add/operator/throttleTime";
 import "rxjs/add/operator/takeUntil";
@@ -15,10 +15,12 @@ export class EmojiSearchComponent {
   @Output('search') searchEmitter: EventEmitter<string> = new EventEmitter();
   @ViewChild('input') input: ElementRef;
 
-  private _searchValue: Subject<string> = new Subject();
-  private _destroyed = new Subject<boolean>();
+  public _searchValue: Subject<string> = new Subject();
+  public _destroyed = new Subject<boolean>();
 
-  constructor(private _renderer: Renderer) {
+  constructor(
+    //public _renderer: Renderer2
+  ) {
     this._searchValue
       .takeUntil(this._destroyed)
       .subscribe(value => {
