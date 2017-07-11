@@ -1,0 +1,1 @@
+[{"__symbolic":"module","version":3,"metadata":{"PIPES":[{"__symbolic":"reference","module":"./emoji-empty-category.pipe","name":"EmojiEmptyCategoryPipe"}]}},{"__symbolic":"module","version":1,"metadata":{"PIPES":[{"__symbolic":"reference","module":"./emoji-empty-category.pipe","name":"EmojiEmptyCategoryPipe"}]}}]
