@@ -4,8 +4,9 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { EmojiPickerModule } from '../../../src';
-
 import { AppComponent } from './app.component';
+
+
 
 @NgModule({
   declarations: [

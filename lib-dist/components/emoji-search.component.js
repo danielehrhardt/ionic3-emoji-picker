@@ -30,7 +30,7 @@ export { EmojiSearchComponent };
 EmojiSearchComponent.decorators = [
     { type: Component, args: [{
                 selector: 'emoji-search',
-                styles: ["input{width:100%;padding:5px 10px;border:1px solid #f0f0f0;outline:0;font-size:14px;font-weight:inherit;box-sizing:border-box}input:focus{border-color:#d7d7d7}"],
+                styles: ["input{width:100%;padding:5px 10px;border:1px solid #f0f0f0;outline:0;font-size:14px;font-weight:inherit;-webkit-box-sizing:border-box;box-sizing:border-box}input:focus{border-color:#d7d7d7}"],
                 template: "\n  <input type=\"text\" autocomplete=\"off\" #input (input)=\"handleInputChange($event.target.value)\" placeholder=\"Search\"/>\n  "
             },] },
 ];
