@@ -4,7 +4,7 @@ import { COMPONENTS } from "./components";
 import { DIRECTIVES } from './directives';
 import { PIPES } from './pipes';
 import { EmojiPickerComponent } from './components';
-var EmojiPickerModule = (function () {
+var EmojiPickerModule = /** @class */ (function () {
     function EmojiPickerModule() {
     }
     EmojiPickerModule.forRoot = function () {
@@ -13,20 +13,20 @@ var EmojiPickerModule = (function () {
             providers: []
         };
     };
+    EmojiPickerModule.decorators = [
+        { type: NgModule, args: [{
+                    imports: [
+                        CommonModule
+                    ],
+                    exports: DIRECTIVES.concat(COMPONENTS),
+                    declarations: PIPES.concat(DIRECTIVES, COMPONENTS),
+                    providers: [],
+                    entryComponents: [EmojiPickerComponent]
+                },] },
+    ];
+    /** @nocollapse */
+    EmojiPickerModule.ctorParameters = function () { return []; };
     return EmojiPickerModule;
 }());
 export { EmojiPickerModule };
-EmojiPickerModule.decorators = [
-    { type: NgModule, args: [{
-                imports: [
-                    CommonModule
-                ],
-                exports: DIRECTIVES.concat(COMPONENTS),
-                declarations: PIPES.concat(DIRECTIVES, COMPONENTS),
-                providers: [],
-                entryComponents: [EmojiPickerComponent]
-            },] },
-];
-/** @nocollapse */
-EmojiPickerModule.ctorParameters = function () { return []; };
 //# sourceMappingURL=emoji-picker.module.js.map

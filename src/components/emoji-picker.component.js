@@ -3,7 +3,7 @@ import { DIRECTIONS } from "../lib/picker-directions";
 import { Subject } from "rxjs/Subject";
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/takeUntil';
-var EmojiPickerComponent = (function () {
+var EmojiPickerComponent = /** @class */ (function () {
     function EmojiPickerComponent(_renderer, _el) {
         var _this = this;
         this._renderer = _renderer;
@@ -82,28 +82,28 @@ var EmojiPickerComponent = (function () {
     EmojiPickerComponent.prototype.ngOnDestroy = function () {
         this._destroyed.next(true);
     };
+    EmojiPickerComponent.decorators = [
+        { type: Component, args: [{
+                    selector: 'emoji-picker',
+                    styles: [':host { position: absolute; z-index: 9999; }'],
+                    template: "\n  <emoji-content (emoji-selection)=\"selectionEmitter.emit($event)\"></emoji-content>\n  ",
+                    host: {
+                        '(document:mousedown)': 'onBackground($event)',
+                        '(mousedown)': '_lastHostMousedownEvent = $event',
+                        '(window:resize)': '_windowResize.next($event)'
+                    }
+                },] },
+    ];
+    /** @nocollapse */
+    EmojiPickerComponent.ctorParameters = function () { return [
+        { type: Renderer, },
+        { type: ElementRef, },
+    ]; };
+    EmojiPickerComponent.propDecorators = {
+        'selectionEmitter': [{ type: Output, args: ['emoji-select',] },],
+        'pickerCloseEmitter': [{ type: Output, args: ['picker-close',] },],
+    };
     return EmojiPickerComponent;
 }());
 export { EmojiPickerComponent };
-EmojiPickerComponent.decorators = [
-    { type: Component, args: [{
-                selector: 'emoji-picker',
-                styles: [':host { position: absolute; z-index: 9999; }'],
-                template: "\n  <emoji-content (emoji-selection)=\"selectionEmitter.emit($event)\"></emoji-content>\n  ",
-                host: {
-                    '(document:mousedown)': 'onBackground($event)',
-                    '(mousedown)': '_lastHostMousedownEvent = $event',
-                    '(window:resize)': '_windowResize.next($event)'
-                }
-            },] },
-];
-/** @nocollapse */
-EmojiPickerComponent.ctorParameters = function () { return [
-    { type: Renderer, },
-    { type: ElementRef, },
-]; };
-EmojiPickerComponent.propDecorators = {
-    'selectionEmitter': [{ type: Output, args: ['emoji-select',] },],
-    'pickerCloseEmitter': [{ type: Output, args: ['picker-close',] },],
-};
 //# sourceMappingURL=emoji-picker.component.js.map

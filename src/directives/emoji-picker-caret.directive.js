@@ -3,7 +3,7 @@ import { Subject } from "rxjs/Subject";
 import 'rxjs/add/operator/takeUntil';
 import 'rxjs/add/operator/distinctUntilChanged';
 import { CaretEvent } from "../../src";
-var EmojiPickerCaretDirective = (function () {
+var EmojiPickerCaretDirective = /** @class */ (function () {
     function EmojiPickerCaretDirective(_el) {
         var _this = this;
         this._el = _el;
@@ -67,26 +67,26 @@ var EmojiPickerCaretDirective = (function () {
             _this._caretEvent$.next(cEvent);
         });
     };
+    EmojiPickerCaretDirective.decorators = [
+        { type: Directive, args: [{
+                    selector: '[emojiPickerCaretEmitter]',
+                    host: {
+                        '(keyup)': 'updateCaretPosition()',
+                        '(mouseup)': 'updateCaretPosition()',
+                        '(selectstart)': 'updateCaretPosition()',
+                        '(focus)': 'updateCaretPosition()',
+                        '(DOMSubtreeModified)': 'updateCaretDueMutation($event)'
+                    }
+                },] },
+    ];
+    /** @nocollapse */
+    EmojiPickerCaretDirective.ctorParameters = function () { return [
+        { type: ElementRef, },
+    ]; };
+    EmojiPickerCaretDirective.propDecorators = {
+        'caretEmitter': [{ type: Output, args: ['emojiPickerCaretEmitter',] },],
+    };
     return EmojiPickerCaretDirective;
 }());
 export { EmojiPickerCaretDirective };
-EmojiPickerCaretDirective.decorators = [
-    { type: Directive, args: [{
-                selector: '[emojiPickerCaretEmitter]',
-                host: {
-                    '(keyup)': 'updateCaretPosition()',
-                    '(mouseup)': 'updateCaretPosition()',
-                    '(selectstart)': 'updateCaretPosition()',
-                    '(focus)': 'updateCaretPosition()',
-                    '(DOMSubtreeModified)': 'updateCaretDueMutation($event)'
-                }
-            },] },
-];
-/** @nocollapse */
-EmojiPickerCaretDirective.ctorParameters = function () { return [
-    { type: ElementRef, },
-]; };
-EmojiPickerCaretDirective.propDecorators = {
-    'caretEmitter': [{ type: Output, args: ['emojiPickerCaretEmitter',] },],
-};
 //# sourceMappingURL=emoji-picker-caret.directive.js.map

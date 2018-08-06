@@ -5,7 +5,7 @@ import 'rxjs/add/operator/distinctUntilChanged';
 import { EmojiPickerComponent } from './../components';
 import { DIRECTIONS } from '../lib/picker-directions';
 import { EmojiEvent } from "../";
-var EmojiPickerApiDirective = (function () {
+var EmojiPickerApiDirective = /** @class */ (function () {
     function EmojiPickerApiDirective(_cfr, _vcr, _el) {
         var _this = this;
         this._cfr = _cfr;
@@ -68,27 +68,27 @@ var EmojiPickerApiDirective = (function () {
     EmojiPickerApiDirective.prototype.ngOnDestroy = function () {
         this._destroyed.next(true);
     };
+    EmojiPickerApiDirective.decorators = [
+        { type: Directive, args: [{
+                    selector: '[emojiPickerIf]',
+                    host: {
+                        '(mousedown)': '$event.emojiPickerExempt = true' // marking off event listening on anchor
+                    }
+                },] },
+    ];
+    /** @nocollapse */
+    EmojiPickerApiDirective.ctorParameters = function () { return [
+        { type: ComponentFactoryResolver, },
+        { type: ViewContainerRef, },
+        { type: ElementRef, },
+    ]; };
+    EmojiPickerApiDirective.propDecorators = {
+        'emojiPickerDirection': [{ type: Input, args: ['emojiPickerDirection',] },],
+        'emojiPickerIf': [{ type: Input, args: ['emojiPickerIf',] },],
+        'emojiPickerIfEmitter': [{ type: Output, args: ['emojiPickerIfChange',] },],
+        'selectEmitter': [{ type: Output, args: ['emojiPickerSelect',] },],
+    };
     return EmojiPickerApiDirective;
 }());
 export { EmojiPickerApiDirective };
-EmojiPickerApiDirective.decorators = [
-    { type: Directive, args: [{
-                selector: '[emojiPickerIf]',
-                host: {
-                    '(mousedown)': '$event.emojiPickerExempt = true' // marking off event listening on anchor
-                }
-            },] },
-];
-/** @nocollapse */
-EmojiPickerApiDirective.ctorParameters = function () { return [
-    { type: ComponentFactoryResolver, },
-    { type: ViewContainerRef, },
-    { type: ElementRef, },
-]; };
-EmojiPickerApiDirective.propDecorators = {
-    'emojiPickerDirection': [{ type: Input, args: ['emojiPickerDirection',] },],
-    'emojiPickerIf': [{ type: Input, args: ['emojiPickerIf',] },],
-    'emojiPickerIfEmitter': [{ type: Output, args: ['emojiPickerIfChange',] },],
-    'selectEmitter': [{ type: Output, args: ['emojiPickerSelect',] },],
-};
 //# sourceMappingURL=emoji-picker-api.directive.js.map

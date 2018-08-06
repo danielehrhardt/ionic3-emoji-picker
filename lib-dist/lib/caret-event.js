@@ -1,4 +1,4 @@
-var CaretEvent = (function () {
+var CaretEvent = /** @class */ (function () {
     function CaretEvent(data) {
         Object.assign(this, data);
     }

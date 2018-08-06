@@ -1,7 +1,7 @@
 import { Component, ViewChild, forwardRef, Output, EventEmitter } from '@angular/core';
 import { EMOJIS } from "../lib/emojis.data";
 import { EmojiListComponent } from "./";
-var EmojiContentComponent = (function () {
+var EmojiContentComponent = /** @class */ (function () {
     function EmojiContentComponent() {
         this.emojiSelectionEmitter = new EventEmitter();
         this._emojis = EMOJIS;
@@ -25,20 +25,20 @@ var EmojiContentComponent = (function () {
     EmojiContentComponent.prototype.categorySelectionHandler = function (event) {
         this.emojiListComponent.selectCategory(event);
     };
+    EmojiContentComponent.decorators = [
+        { type: Component, args: [{
+                    selector: 'emoji-content',
+                    styleUrls: ['../styles/emoji-content.scss'],
+                    template: "\n  <emoji-header \n    [emojisCategories]=\"emojisCategories\"\n    (categorySelection)=\"categorySelectionHandler($event)\"\n    (search)=\"searchHandler($event)\"></emoji-header>\n  <emoji-list [emojis]=\"emojis\" (emoji-selection)=\"emojiSelectionEmitter.emit($event)\"></emoji-list>\n  <emoji-footer></emoji-footer>\n  "
+                },] },
+    ];
+    /** @nocollapse */
+    EmojiContentComponent.ctorParameters = function () { return []; };
+    EmojiContentComponent.propDecorators = {
+        'emojiListComponent': [{ type: ViewChild, args: [forwardRef(function () { return EmojiListComponent; }),] },],
+        'emojiSelectionEmitter': [{ type: Output, args: ['emoji-selection',] },],
+    };
     return EmojiContentComponent;
 }());
 export { EmojiContentComponent };
-EmojiContentComponent.decorators = [
-    { type: Component, args: [{
-                selector: 'emoji-content',
-                styleUrls: ['../styles/emoji-content.scss'],
-                template: "\n  <emoji-header \n    [emojisCategories]=\"emojisCategories\"\n    (categorySelection)=\"categorySelectionHandler($event)\"\n    (search)=\"searchHandler($event)\"></emoji-header>\n  <emoji-list [emojis]=\"emojis\" (emoji-selection)=\"emojiSelectionEmitter.emit($event)\"></emoji-list>\n  <emoji-footer></emoji-footer>\n  "
-            },] },
-];
-/** @nocollapse */
-EmojiContentComponent.ctorParameters = function () { return []; };
-EmojiContentComponent.propDecorators = {
-    'emojiListComponent': [{ type: ViewChild, args: [forwardRef(function () { return EmojiListComponent; }),] },],
-    'emojiSelectionEmitter': [{ type: Output, args: ['emoji-selection',] },],
-};
 //# sourceMappingURL=emoji-content.component.js.map

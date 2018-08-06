@@ -1,4 +1,4 @@
-var EmojiEvent = (function () {
+var EmojiEvent = /** @class */ (function () {
     function EmojiEvent(data) {
         Object.assign(this, data);
     }
